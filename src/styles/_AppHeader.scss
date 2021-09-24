@@ -1,0 +1,15 @@
+.AppHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2.1875em;
+  padding-top: 3.5em;
+
+  ul {
+    list-style-type: none;
+    display: flex;
+    padding: 0;
+    align-items: center;
+    margin: 0;
+  }
+}

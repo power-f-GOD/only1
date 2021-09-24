@@ -1,0 +1,194 @@
+$theme-primary: rgb(57, 84, 255); // blue
+$prim-r: 57;
+$prim-g: 84;
+$prim-b: 225;
+$theme-primary-v9: rgba($prim-r, $prim-g, $prim-b, 0.1);
+$theme-primary-v8: rgba($prim-r, $prim-g, $prim-b, 0.2);
+$theme-primary-v7: rgba($prim-r, $prim-g, $prim-b, 0.3);
+$theme-primary-v6: rgba($prim-r, $prim-g, $prim-b, 0.4);
+$theme-primary-v5: rgba($prim-r, $prim-g, $prim-b, 0.5);
+$theme-primary-v4: rgba($prim-r, $prim-g, $prim-b, 0.6);
+$theme-primary-v3: rgba($prim-r, $prim-g, $prim-b, 0.7);
+$theme-primary-v2: rgba($prim-r, $prim-g, $prim-b, 0.8);
+$theme-primary-v1: rgba($prim-r, $prim-g, $prim-b, 0.9);
+$theme-primary: rgba($prim-r, $prim-g, $prim-b, 1);
+
+$theme-purple: rgb(90, 90, 243); // purple
+$purple-r: 90;
+$purple-g: 90;
+$purple-b: 243;
+$theme-purple-v9: rgba($purple-r, $purple-g, $purple-b, 0.1);
+$theme-purple-v8: rgba($purple-r, $purple-g, $purple-b, 0.2);
+$theme-purple-v7: rgba($purple-r, $purple-g, $purple-b, 0.3);
+$theme-purple-v6: rgba($purple-r, $purple-g, $purple-b, 0.4);
+$theme-purple-v5: rgba($purple-r, $purple-g, $purple-b, 0.5);
+$theme-purple-v4: rgba($purple-r, $purple-g, $purple-b, 0.6);
+$theme-purple-v3: rgba($purple-r, $purple-g, $purple-b, 0.7);
+$theme-purple-v2: rgba($purple-r, $purple-g, $purple-b, 0.8);
+$theme-purple-v1: rgba($purple-r, $purple-g, $prim-b, 0.9);
+$theme-purple: rgba($purple-r, $purple-g, $purple-b, 1);
+
+$theme-yellow: rgb(255, 211, 57); // yellow
+$yellow-r: 255;
+$yellow-g: 211;
+$yellow-b: 57;
+$theme-yellow-v9: rgba($yellow-r, $yellow-g, $yellow-b, 0.1);
+$theme-yellow-v8: rgba($yellow-r, $yellow-g, $yellow-b, 0.2);
+$theme-yellow-v7: rgba($yellow-r, $yellow-g, $yellow-b, 0.3);
+$theme-yellow-v6: rgba($yellow-r, $yellow-g, $yellow-b, 0.4);
+$theme-yellow-v5: rgba($yellow-r, $yellow-g, $yellow-b, 0.5);
+$theme-yellow-v4: rgba($yellow-r, $yellow-g, $yellow-b, 0.6);
+$theme-yellow-v3: rgba($yellow-r, $yellow-g, $yellow-b, 0.7);
+$theme-yellow-v2: rgba($yellow-r, $yellow-g, $yellow-b, 0.8);
+$theme-yellow-v1: rgba($yellow-r, $yellow-g, $prim-b, 0.9);
+$theme-yellow: rgba($yellow-r, $yellow-g, $yellow-b, 1);
+
+$theme-orange: rgb(255, 109, 57); // orange
+$orange-r: 255;
+$orange-g: 109;
+$orange-b: 57;
+$theme-orange-v9: rgba($orange-r, $orange-g, $orange-b, 0.1);
+$theme-orange-v8: rgba($orange-r, $orange-g, $orange-b, 0.2);
+$theme-orange-v7: rgba($orange-r, $orange-g, $orange-b, 0.3);
+$theme-orange-v6: rgba($orange-r, $orange-g, $orange-b, 0.4);
+$theme-orange-v5: rgba($orange-r, $orange-g, $orange-b, 0.5);
+$theme-orange-v4: rgba($orange-r, $orange-g, $orange-b, 0.6);
+$theme-orange-v3: rgba($orange-r, $orange-g, $orange-b, 0.7);
+$theme-orange-v2: rgba($orange-r, $orange-g, $orange-b, 0.8);
+$theme-orange-v1: rgba($orange-r, $orange-g, $prim-b, 0.9);
+$theme-orange: rgba($orange-r, $orange-g, $orange-b, 1);
+
+$theme-tertiary: rgba(33, 33, 33); // tertiary
+$tertiary-r: 33;
+$tertiary-g: 33;
+$tertiary-b: 33;
+$theme-tertiary-v9: rgba($tertiary-r, $tertiary-g, $tertiary-b, 0.1);
+$theme-tertiary-v8: rgba($tertiary-r, $tertiary-g, $tertiary-b, 0.2);
+$theme-tertiary-v7: rgba($tertiary-r, $tertiary-g, $tertiary-b, 0.3);
+$theme-tertiary-v6: rgba($tertiary-r, $tertiary-g, $tertiary-b, 0.4);
+$theme-tertiary-v5: rgba($tertiary-r, $tertiary-g, $tertiary-b, 0.5);
+$theme-tertiary-v4: rgba($tertiary-r, $tertiary-g, $tertiary-b, 0.6);
+$theme-tertiary-v3: rgba($tertiary-r, $tertiary-g, $tertiary-b, 0.7);
+$theme-tertiary-v2: rgba($tertiary-r, $tertiary-g, $tertiary-b, 0.8);
+$theme-tertiary-v1: rgba($tertiary-r, $tertiary-g, $tertiary-b, 0.9);
+$theme-tertiary: rgba($tertiary-r, $tertiary-g, $tertiary-b, 1);
+
+$br: 0.5em;
+$heading-default: #0d2344;
+$content-default: rgba(13, 35, 68, 0.8);
+$content-default-s: rgba(13, 35, 68, 0.6);
+$bg-default: #f8f9fa;
+$bg-lightblue: #e8f1ff;
+$bg-lightpurple: rgba(248, 163, 98, 0.1);
+$nav-bg: #f5f8fc;
+$success: rgb(0, 156, 0);
+$button-box-shadow: 0 0.375em 1em $theme-primary-v8;
+$button-box-shadow-hover: 0 0.125em 0.25em $theme-primary-v7;
+// $button-yellow-box-shadow: 0 0.375em 1em $theme-purple-v8;
+// $button-yellow-box-shadow-hover: 0 0.125em 0.25em $theme-purple-v7;
+$header-bg: rgb(250, 248, 237);
+$timing-func_mode: 1s cubic-bezier(0.1, 1, 0.35, 1) both;
+
+@mixin debugger($color: red) {
+  &,
+  * {
+    border: 1px solid $color;
+  }
+}
+
+/// Sidebar: The "or's" comparing the default params values here are not necessary. They are just for you to know valid values that can be passed in. Obviously, the first ones [values] win.
+@mixin anim__(
+  $mode: 'fadeIn' or 'fadeOut',
+  $direction: 'Right' or 'Left' or 'Up' or 'Down' or null,
+  $magnitude: 'Small' or 'Big' or null
+) {
+  $isIn: $mode == 'fadeIn' or $mode == 'In';
+  $isFade: $mode == 'fadeIn' or $mode == 'fadeOut';
+  $dir: $direction;
+  $isX: $dir == 'Right' or $direction == 'Left';
+  $isBig: $magnitude == 'Big';
+
+  @keyframes anim__#{$mode}#{if($dir, $dir, '')}#{if($isBig, $magnitude, '')} {
+    from {
+      @if ($isFade) {
+        opacity: if($isIn, 0, 1);
+      }
+
+      @if ($dir) {
+        @if $isIn {
+          @if $isX {
+            $isLeft: $dir == 'Left';
+
+            transform: translateX(if($isBig, if($isLeft, 100vw, -100vw), if($isLeft, 3em, -3em)));
+          } @else {
+            $isUp: $dir == 'Up';
+
+            transform: translateY(if($isBig, if($isUp, 100vh, -100vh), if($isUp, 3em, -3em)));
+          }
+        } @else {
+          @if $isX {
+            transform: translateX(0);
+          } @else {
+            transform: translateY(0);
+          }
+        }
+      }
+    }
+
+    to {
+      @if $isFade {
+        opacity: if($isIn, 1, 0);
+      }
+
+      @if $dir {
+        @if $isIn {
+          @if $isX {
+            transform: translateX(0);
+          } @else {
+            transform: translateY(0);
+          }
+        } @else {
+          @if $isX {
+            $isLeft: $dir == 'Left';
+
+            transform: translateX(if($isBig, if($isLeft, -100vw, 100vw), if($isLeft, -3em, 3em)));
+          } @else {
+            $isUp: $dir == 'Up';
+
+            transform: translateY(if($isBig, if($isUp, -100vh, 100vh), if($isUp, -3em, 3em)));
+          }
+        }
+      }
+    }
+  }
+}
+
+@mixin before-or-after(
+  $bg: $theme-primary,
+  $w: 100%,
+  $h: 100%,
+  $br: inherit,
+  $tr: 0.3s,
+  $t: 0,
+  $l: 0,
+  $r: 0,
+  $b: 0,
+  $o: inherit,
+  $zi: -1,
+  $bs: none
+) {
+  position: absolute;
+  content: ' ';
+  width: $w;
+  height: $h;
+  top: $t;
+  left: $l;
+  right: $r;
+  bottom: $b;
+  z-index: $zi;
+  background: $bg;
+  border-radius: $br;
+  box-shadow: $bs;
+  opacity: $o;
+  transition: $tr;
+}

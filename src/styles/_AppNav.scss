@@ -1,0 +1,111 @@
+.before-or-after {
+  @include before-or-after($bg: inherit, $br: inherit, $o: 0.9);
+  backdrop-filter: blur(0.5rem);
+}
+
+.AppNav {
+  left: 0;
+  display: block;
+  right: 0;
+  top: 0;
+  position: sticky;
+  z-index: 1001;
+  // pointer-events: none;
+  padding-bottom: 3.625em;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  max-height: 100vh;
+  overflow: auto;
+  background-color: rgba(247, 249, 253, 1); // rgba($purple-r, $purple-g, $purple-b, 0.04);
+
+  .Logo {
+    position: sticky;
+    background-color: inherit;
+    padding: 3.625em 0 0.5em 2.75em !important;
+    top: 0;
+    width: 100%;
+
+    &:hover,
+    &:focus-within {
+      opacity: 1;
+    }
+  }
+
+  li,
+  a {
+    position: relative;
+    color: $theme-tertiary-v2;
+  }
+
+  li {
+    font-size: 0.9em;
+
+    .active {
+      color: $theme-primary;
+      background-color: rgba(57, 84, 255, 0.05); // rgba($purple-r, $purple-g, $purple-b, 0.07);
+      border-left-color: $theme-primary !important;
+
+      path {
+        stroke: none;
+        fill: $theme-primary;
+      }
+    }
+  }
+}
+
+div.AppNav__underlay {
+  @extend .before-or-after;
+  background: rgba(255, 255, 255, 0.95) !important;
+  opacity: 1;
+  transition: unset;
+}
+
+ul.AppNav__nav-links-container {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  margin: 5.8em 0;
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  padding: 0;
+  animation-duration: 0.35s;
+  transition: transform 0.3s, opacity 0.3s !important;
+}
+
+.AppNav__nav-link {
+  width: 100%;
+  justify-content: start;
+  padding: 0.75em 0.5em 0.75em 2.35em;
+  border-radius: unset;
+  font-size: 1.125rem;
+  box-shadow: none !important;
+  border-left: 0.3125em solid transparent;
+  transition: 0.3s !important;
+
+  path {
+    fill: $theme-tertiary;
+  }
+
+  &:hover,
+  &:focus {
+    background-color: $theme-primary-v9;
+    color: $theme-primary-v1;
+    border-left-color: $theme-primary-v8 !important;
+
+    path {
+      fill: $theme-primary-v1;
+    }
+  }
+}
+
+.AppNav__logout-btn {
+  &:hover,
+  &:focus {
+    path {
+      fill: unset !important;
+      stroke: $theme-primary;
+    }
+  }
+}

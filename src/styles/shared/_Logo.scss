@@ -1,0 +1,51 @@
+.Logo {
+  position: sticky;
+  top: 0;
+  z-index: 4;
+  width: auto;
+  pointer-events: all;
+  display: inline-flex;
+  align-content: center;
+  transition: opacity 0.3s;
+
+  &.preserve-text {
+    .Icon {
+      &.name__only1-logo--blue {
+        width: 2em !important;
+        margin-right: 0.25em !important;
+      }
+
+      &.name__only1-logo-text {
+        width: 7em;
+      }
+    }
+
+    .flag-icon {
+      margin-left: -0.45em;
+      transform: scale(0.45, 0.3);
+    }
+  }
+
+  a {
+    height: 3em;
+    // width: 6em;
+    text-decoration: none !important;
+    line-height: unset;
+    align-items: center;
+    display: inline-flex !important;
+
+    strong {
+      font-size: 1.75em;
+    }
+  }
+
+  .Icon {
+    height: 100% !important;
+    max-height: 3em;
+
+    &.name__only1-logo {
+      width: 2.625em;
+      height: 2.625em;
+    }
+  }
+}
