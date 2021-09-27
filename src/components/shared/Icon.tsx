@@ -1,8 +1,8 @@
-import { FC, memo } from 'react';
+import { FC, memo, useMemo } from 'react';
 import { Box } from '.';
 import { IconProps } from 'src/types';
 
-const _Icon: FC<IconProps> = ({ children, name, size, crop, className }) => {
+const _Icon: FC<IconProps> = ({ children, name, size, fontSize, crop, className }) => {
   return (
     <Box
       as="i"
@@ -10,7 +10,8 @@ const _Icon: FC<IconProps> = ({ children, name, size, crop, className }) => {
         crop ? 'overlow-clip' : ''
       }`.trim()}
       role="img"
-      aria-label={`${name || ''} icon`}>
+      aria-label={`${name || ''} icon`}
+      style={useMemo(() => ({ fontSize }), [fontSize])}>
       {children}
     </Box>
   );

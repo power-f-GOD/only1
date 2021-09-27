@@ -1,17 +1,20 @@
-import { useState, useCallback, useContext, useEffect, memo, AnimationEvent } from 'react';
+import { useState, useCallback, useContext, useEffect, memo } from 'react';
+
+import IconButton from '@material-ui/core/IconButton';
 
 import { AppWindowContext } from 'src/pages/_app';
 import { Box } from '.';
-import { NavLink, Button, SVGIcon, Avatar } from './shared';
+import { SVGIcon, Avatar } from './shared';
 import { SVGIconName } from 'src/types';
+import { GetImage } from 'src/utils';
 
 const actions = ['search', 'notification'];
 
 const AppHeader = (): JSX.Element => {
   const windowWidth = useContext(AppWindowContext);
   const isPC = windowWidth > 991 && typeof window !== 'undefined';
-  const [open, setOpen] = useState(false);
-  const [renderNav, setRenderNav] = useState(isPC);
+  const [open] = useState(false);
+  // const [renderNav, setRenderNav] = useState(isPC);
 
   useEffect(() => {
     if (!isPC) {
@@ -28,21 +31,23 @@ const AppHeader = (): JSX.Element => {
       </Box>
 
       <Box as="ul" className={`AppHeader__actions-container`}>
-        {actions.map((route) => {
-          const [name] = route.split('|');
+        {actions.map(
+          useCallback((route) => {
+            const [name] = route.split('|');
 
-          return (
-            <Box as="li" className="mx-lg-2" key={name}>
-              <Button _type="icon-button">
-                <SVGIcon name={name as SVGIconName} />
-              </Button>
-            </Box>
-          );
-        })}
+            return (
+              <Box as="li" className="mx-lg-2" key={name}>
+                <IconButton>
+                  <SVGIcon name={name as SVGIconName} />
+                </IconButton>
+              </Box>
+            );
+          }, [])
+        )}
 
-        <Box as="li" className="ms-lg-2 d-flex align-items-center">
-          <Avatar src={''} noFrame size="small" alt="avatar" />
-          <SVGIcon fontSize="0.125em" name="caret-down" className="ms-2" />
+        <Box as="li" className="ms-3 d-flex align-items-center">
+          <Avatar src={GetImage.misc('avatar')} noFrame size="small" alt="avatar" />
+          <SVGIcon fontSize="0.75em" name="caret-down" className="ms-3" />
         </Box>
       </Box>
     </Box>

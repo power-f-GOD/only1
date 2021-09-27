@@ -19,7 +19,7 @@
       );
       backdrop-filter: blur(0.5rem);
       box-shadow: 0 0 0 0.0625em #f4f4f4;
-      transition-timing-func_modetion: $timing-func_mode;
+      transition-timing-function: $timing-func_mode;
       transition-delay: 0.125s;
     }
   }
@@ -87,22 +87,6 @@
           box-shadow: none !important;
         }
       }
-
-      &:focus-within .AppNav__menu,
-      > a:focus + .AppNav__menu {
-        display: list-item;
-        transition: 0.3s cubic-bezier(0.125, 1, 0.5, 1) 0.1s;
-      }
-
-      $delay: 0.05;
-
-      @for $i from 1 through 6 {
-        &:nth-child(#{$i}) {
-          .AppNav__nav-link {
-            animation-delay: #{($i + 3) * $delay}s;
-          }
-        }
-      }
     }
   }
 
@@ -123,98 +107,19 @@
       content: unset !important;
     }
   }
-
-  div.AppNav__menu {
-    top: 100%;
-    margin-top: 0.45em;
-    display: none;
-    border: 0.125rem solid rgb(232, 241, 254);
-    animation: anim__fadeInDown 0.5s;
-
-    a {
-      $delay: 0.1s;
-
-      p {
-        animation: anim__fadeInUp 0.4s;
-        animation-fill-mode: backwards;
-      }
-
-      @for $i from 1 through 4 {
-        &:nth-child(#{$i}) p {
-          animation-delay: #{$i * $delay} !important;
-        }
-      }
-    }
-
-    &::before {
-      content: initial;
-    }
-  }
 }
 
-@media screen and (min-width: 992px) {
-  .AppNav {
-    top: 0.5rem;
-  }
+// @media screen and (min-width: 992px) {
+//   ul.AppNav__nav-links-container {
+//     border-radius: $br !important;
 
-  ul.AppNav__nav-links-container {
-    border-radius: $br !important;
+//     &::before {
+//       content: ' ';
+//     }
 
-    &::before {
-      content: ' ';
-    }
-
-    li {
-      perspective: 4rem;
-      perspective-origin: center 450%;
-
-      &:hover,
-      &:focus-within {
-        .AppNav__menu {
-          transition: 0.3s cubic-bezier(0.125, 1, 0.5, 1) 0.1s, visibility 0s;
-          visibility: visible;
-          transform: translateX(0);
-          opacity: 1;
-        }
-      }
-    }
-  }
-
-  div.AppNav__menu {
-    position: absolute;
-    visibility: hidden;
-    opacity: 0;
-    top: 110%;
-    background-color: rgba(255, 255, 255, 0.85);
-    transform: translateY(-1rem);
-    // transition: 0.2s, visibility 0s ease 0.2s;
-    box-shadow: 0 $br * 0.85 $br * 1.25 rgba(13, 35, 68, 0.12);
-
-    a {
-      width: 22rem;
-    }
-  }
-}
-
-.custom-bars-wrapper {
-  span {
-    @media screen and (max-width: 1199px) {
-      transition-delay: 0.3s;
-      width: 100%;
-    }
-
-    @media screen and (min-width: 1200px) {
-      &:nth-child(1) {
-        transform: translate(0, -0.35rem);
-      }
-
-      &:nth-child(2) {
-        opacity: 1;
-      }
-
-      &:nth-child(3) {
-        transform: translate(0, 0.35rem);
-      }
-    }
-  }
-}
+//     li {
+//       perspective: 4rem;
+//       perspective-origin: center 450%;
+//     }
+//   }
+// }

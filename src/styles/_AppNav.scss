@@ -17,7 +17,6 @@
   flex-direction: column;
   max-height: 100vh;
   overflow: auto;
-  background-color: rgba(247, 249, 253, 1); // rgba($purple-r, $purple-g, $purple-b, 0.04);
 
   .Logo {
     position: sticky;
@@ -77,7 +76,7 @@ ul.AppNav__nav-links-container {
 .AppNav__nav-link {
   width: 100%;
   justify-content: start;
-  padding: 0.75em 0.5em 0.75em 2.35em;
+  padding: 0.9em 0.5em 0.9em 2.35em;
   border-radius: unset;
   font-size: 1.125rem;
   box-shadow: none !important;

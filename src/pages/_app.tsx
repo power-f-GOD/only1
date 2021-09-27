@@ -3,6 +3,7 @@
 import { createContext, useState, useEffect, useMemo } from 'react';
 import { AppProps } from 'next/app';
 import Head from 'next/head';
+import { StylesProvider } from '@material-ui/core/styles';
 
 import 'src/styles/index.scss';
 import { AppNav, AppHeader } from 'src/components';
@@ -48,9 +49,12 @@ const App = ({ Component, pageProps }: AppProps): JSX.Element => {
           <meta name="viewport" content="width=device-width, initial-scale=1.0" />
           {/* <link rel="icon" href="/favicon.ico" /> */}
         </Head>
-        <AppNav />
-        <AppHeader />
-        <Component {...pageProps} />
+
+        <StylesProvider injectFirst>
+          <AppNav />
+          <AppHeader />
+          <Component {...pageProps} />
+        </StylesProvider>
       </AppWindowContext.Provider>
     </AppContext.Provider>
   );

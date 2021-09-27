@@ -1,0 +1,10 @@
+.Dashboard {
+  display: grid;
+
+  @media screen and (min-width: 992px) {
+    row-gap: 2.125em;
+    column-gap: 1.75em;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: auto 1fr;
+  }
+}

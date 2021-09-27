@@ -1,0 +1,33 @@
+.TopRightSection {
+  grid-column: 7 / 13;
+}
+
+.keyFilterWrapper {
+  font-size: 0.65em;
+}
+
+.blueKey {
+  .box {
+    $size: 0.5rem;
+
+    height: $size;
+    width: $size;
+    display: inline-block;
+  }
+
+  .received {
+    background-color: $theme-primary;
+  }
+
+  .completed {
+    background-color: $theme-yellow;
+  }
+}
+
+.filterSelect {
+  width: 8em;
+
+  > div > div {
+    padding: 0.25em 0;
+  }
+}

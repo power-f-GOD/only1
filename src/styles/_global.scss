@@ -3,8 +3,8 @@
 :root {
   --color-primary: rgb(25, 113, 245);
   --color-primary-light: rgba(21, 105, 232, 0.12);
-  --color-secondary: #f8a362;
-  --color-secondary-light: rgba(248, 163, 98, 0.2);
+  --color-yellow: #f8a362;
+  --color-yellow-light: rgba(248, 163, 98, 0.2);
   --color-text: #000;
   --color-muted: #ccc;
   --color-muted-light: #f8f8f8;
@@ -19,17 +19,15 @@ body {
   font-weight: 400;
 
   @media screen and (max-width: 374px) {
-    font-size: 0.95em;
+    font-size: 0.925em;
   }
 }
 
 body {
   // @include debugger();
   background-color: white;
-  // font-size: 1rem !important;
   min-height: 100vh;
-  // overflow: hidden;
-  color: rgba(13, 35, 68, 0.8);
+  color: $theme-tertiary;
   overflow-x: hidden !important;
 
   &.desktop.is-pc {
@@ -55,7 +53,7 @@ body {
 * {
   font-family: Inter !important; //, 'Helvetica Neue', sans-serif !important;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  line-height: 1.85em;
+  line-height: 1.5em;
   color: inherit;
 
   &,
@@ -256,33 +254,16 @@ input[type='password'] {
   pointer-events: none;
 }
 
-.app-splash {
-  height: 100%;
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  display: flex;
-  justify-content: center;
-  align-content: center;
-  flex-direction: column;
-  z-index: 100000000;
-  width: 100%;
-  color: #fff;
-  font-weight: 400;
-  background: var(--color-primary);
-  transition: 1s ease 1.75s;
+.MuiInputBase-root {
+  font-size: 1em;
+}
 
-  img {
-    border-left-color: rgba(255, 255, 255, 0.5) !important;
-  }
+.MuiPaper-elevation8 {
+  box-shadow: 0 0.5em 2em rgb(0 0 0 / 10%);
+}
 
-  .d-none {
-    display: none;
-  }
-
-  .loading {
-    text-align: center;
-  }
+.MuiIconButton-root {
+  font-size: 1.125em;
 }
 
 [class~='col'],
@@ -411,15 +392,18 @@ a.no-shadow,
   color: $theme-tertiary !important;
 }
 .theme-tertiary-darker {
+  color: $theme-tertiary-v1 !important;
+}
+.theme-tertiary-dark {
   color: $theme-tertiary-v3 !important;
 }
-.theme-tertiary-darkest {
-  color: $theme-tertiary-v1 !important;
+.theme-tertiary-light {
+  color: $theme-tertiary-v5 !important;
 }
 .theme-tertiary-lighter {
   color: $theme-tertiary-v7 !important;
 }
-.theme-tertiary-lightest {
+.theme-tertiary-lighest {
   color: $theme-tertiary-v9 !important;
 }
 .theme-white {
@@ -442,7 +426,7 @@ a.no-shadow,
   background-color: $theme-primary-v9;
 }
 
-.theme-bg-secondary {
+.theme-bg-yellow {
   background-color: $theme-yellow;
 }
 

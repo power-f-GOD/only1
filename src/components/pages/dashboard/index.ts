@@ -1,5 +1,7 @@
-import Header from './Header';
-import Main from './Main';
-import Aside from './Aside';
+import TopLeftSection from './TopLeftSection';
+import TopRightSection from './TopRightSection';
+import BottomLeftSection from './BottomLeftSection';
+import BottomRightSection from './BottomRightSection';
+// import Card from './Card';
 
-export { Header, Main, Aside };
+export { TopLeftSection, TopRightSection, BottomLeftSection, BottomRightSection };

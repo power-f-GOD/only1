@@ -20,6 +20,7 @@ export interface IconProps {
   className?: string;
   size?: 'tiny' | 'small' | 'medium' | 'large' | 'inherit';
   crop?: boolean;
+  fontSize?: string;
 }
 
 export interface ButtonProps
@@ -81,6 +82,7 @@ export type TransitionAnimName =
   | 'scaleY';
 
 export type SVGIconName =
+  | 'more'
   | 'caret-down'
   | 'search'
   | 'notification'
