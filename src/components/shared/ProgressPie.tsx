@@ -1,14 +1,13 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 import { FC, memo, useState, useEffect, useMemo } from 'react';
 
-import { useTheme } from '@mui/styles';
+import { useTheme, Theme } from '@mui/material/styles';
 
 import CircularProgress, { CircularProgressProps } from '@mui/material/CircularProgress';
 
 import { Box } from 'src/components';
 import { delay } from 'src/utils';
 import { SubPaletteColor } from 'src/types';
-import { Theme } from '@mui/material/styles/createTheme';
 
 const _ProgressPie: FC<
   Omit<CircularProgressProps, 'color'> & {
@@ -55,7 +54,7 @@ const _ProgressPie: FC<
             color: theme.palette.grey[100]
           }),
           //eslint-disable-next-line
-          [color]
+          []
         )}
         value={100}
       />

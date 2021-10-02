@@ -3,14 +3,13 @@
 import { createContext, useState, useEffect, useMemo } from 'react';
 import { AppProps } from 'next/app';
 import Head from 'next/head';
+import { useRouter } from 'next/router';
 
-import { StylesProvider } from '@mui/styles';
-import { ThemeProvider } from '@mui/material/styles';
+import { StylesProvider, ThemeProvider } from '@mui/styles';
 
 import 'src/styles/index.scss';
 import { AppNav, AppHeader } from 'src/components';
 import { throttle, delay, theme } from 'src/utils';
-import { useRouter } from 'next/router';
 
 export const AppContext = createContext({});
 export const AppWindowContext = createContext<number>(globalThis.innerWidth);

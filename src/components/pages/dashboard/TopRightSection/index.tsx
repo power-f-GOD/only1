@@ -3,8 +3,7 @@ import { useCallback, memo } from 'react';
 import IconButton from '@mui/material/IconButton';
 
 import S from 'src/styles/pages/dashboard/index.module.scss';
-import Card from './Card';
-import ChartFilter from './ChartFilter';
+import { Card, ChartFilter } from '../shared';
 import { Box, SVGIcon } from 'src/components';
 import BarChart from './BarChart';
 

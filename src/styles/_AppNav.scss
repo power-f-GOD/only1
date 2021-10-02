@@ -34,14 +34,13 @@
   li,
   a {
     position: relative;
-    color: $theme-tertiary-v2;
   }
 
   li {
     font-size: 0.9em;
 
     .active {
-      color: $theme-primary;
+      color: $theme-primary !important;
       background-color: rgba(57, 84, 255, 0.05); // rgba($purple-r, $purple-g, $purple-b, 0.07);
       border-left-color: $theme-primary !important;
 
@@ -81,20 +80,21 @@ ul.AppNav__nav-links-container {
   font-size: 1.125rem;
   box-shadow: none !important;
   border-left: 0.3125em solid transparent;
+  color: $theme-tertiary-600 !important;
   transition: 0.3s !important;
 
   path {
-    fill: $theme-tertiary;
+    fill: $theme-tertiary-600;
   }
 
   &:hover,
   &:focus {
-    background-color: $theme-primary-v9;
-    color: $theme-primary-v1;
-    border-left-color: $theme-primary-v8 !important;
+    background-color: $theme-primary-100;
+    color: $theme-primary-900 !important;
+    border-left-color: $theme-primary-200 !important;
 
     path {
-      fill: $theme-primary-v1;
+      fill: $theme-primary-900;
     }
   }
 }

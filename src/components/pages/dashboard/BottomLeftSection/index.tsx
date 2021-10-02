@@ -2,9 +2,9 @@
 import IconButton from '@mui/material/IconButton';
 
 import S from 'src/styles/pages/dashboard/index.module.scss';
-import Card from './Card';
+import { Card, ChartFilter } from '../shared';
 import { Box, SVGIcon } from 'src/components';
-import ChartFilter from './ChartFilter';
+import AreaChart from './AreaChart';
 
 const BottomLeftSection = (): JSX.Element => {
   return (
@@ -22,6 +22,8 @@ const BottomLeftSection = (): JSX.Element => {
           <SVGIcon name="more" />
         </IconButton>
       </Box>
+
+      <AreaChart />
     </Card>
   );
 };

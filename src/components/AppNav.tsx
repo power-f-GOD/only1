@@ -8,10 +8,10 @@ import { SVGIconName } from 'src/types';
 const routes = [
   'Dashboard|/|home',
   'My Team|/my-team|people',
-  'Task|/task|briefcase',
-  'Calendar|/calendar|calendar',
-  'Report|/report|graph',
-  'Settings|/settings|settings'
+  'Task|/#!task|briefcase',
+  'Calendar|/#!calendar|calendar',
+  'Report|/#!report|graph',
+  'Settings|/#!settings|settings'
 ];
 
 const AppNav = (): JSX.Element => {
@@ -96,7 +96,7 @@ const AppNav = (): JSX.Element => {
           color="primary"
           variant="contained"
           className="AppNav__logout-btn"
-          href="/login">
+          href="/#!login">
           <SVGIcon name="logout" className="me-3" />
           Logout
         </Anchor>

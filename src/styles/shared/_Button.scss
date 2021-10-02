@@ -141,7 +141,7 @@
 
 .btn--outlined {
   background-color: transparent;
-  border-color: $theme-tertiary-v9;
+  border-color: $theme-tertiary-100;
 
   &.primary {
     color: $theme-primary;
@@ -164,7 +164,7 @@
   }
 
   &.tertiary {
-    color: $theme-tertiary-v2 !important;
+    color: $theme-tertiary-800 !important;
     // border-color: $theme-tertiary;
 
     &:hover,
@@ -230,7 +230,7 @@
 
   &:hover,
   &:focus {
-    background-color: $theme-primary-v9;
+    background-color: $theme-primary-100;
 
     path {
       fill: $theme-primary;
@@ -247,7 +247,7 @@
 .PlaystoreButton {
   padding: 0;
   border: 0.2em solid #bbb;
-  background-color: $theme-tertiary-v1 !important;
+  background-color: $theme-tertiary-900 !important;
   // position: relative;
 
   &:hover,

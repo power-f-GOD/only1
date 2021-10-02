@@ -61,3 +61,33 @@ export const barChartData: Array<{
     received: 110
   }
 ];
+
+export const areaChartData: Array<{
+  month: string;
+  act: number;
+}> = [
+  {
+    month: 'Jan',
+    act: 20
+  },
+  {
+    month: 'Feb',
+    act: 40
+  },
+  {
+    month: 'Mar',
+    act: 30
+  },
+  {
+    month: 'Apr',
+    act: 50
+  },
+  {
+    month: 'May',
+    act: 40
+  },
+  {
+    month: 'Jun',
+    act: 60
+  }
+];

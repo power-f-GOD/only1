@@ -1,0 +1,46 @@
+.BarChart,
+.AreaChart {
+  tspan {
+    font-size: 0.75em;
+    top: 0.25em;
+  }
+
+  g[class~='recharts-bar-rectangle'] {
+    transform: translateY(-0.5px);
+  }
+}
+
+.CustomTooltip {
+  padding: 0.75em 1.5em;
+  border-radius: 0.75em;
+  background: $theme-tertiary;
+  color: white;
+  position: relative;
+  box-shadow: 0 0.25em 0.875em $theme-tertiary-200;
+  // transform: translateY(-100%);
+
+  span {
+    font-size: 0.75em;
+    color: white;
+  }
+}
+
+.BarChartCustomTooltip {
+  border-radius: 0.75em;
+  box-shadow: 0 0.25em 0.875em $theme-tertiary-100;
+  border: none !important;
+  padding: 0.75em !important;
+
+  p {
+    font-weight: bold;
+    margin: 0 0;
+  }
+
+  ul * {
+    line-height: 1;
+  }
+
+  li {
+    font-size: 0.85em;
+  }
+}

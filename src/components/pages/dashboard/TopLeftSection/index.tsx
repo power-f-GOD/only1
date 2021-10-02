@@ -5,9 +5,9 @@ import { Container } from 'react-bootstrap';
 import IconButton from '@mui/material/IconButton';
 
 import S from 'src/styles/pages/dashboard/index.module.scss';
-import Card from './Card';
+import { Card } from '../shared';
 import { SVGIcon, Box, ProgressPie } from 'src/components/shared';
-import { pieChartData } from './data';
+import { pieChartData } from '../data';
 import { SubPaletteColor } from 'src/types';
 
 const TopLeftSection = (): JSX.Element => {

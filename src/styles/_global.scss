@@ -144,7 +144,7 @@ h6 {
 }
 
 a {
-  color: $theme-primary-v4;
+  color: $theme-primary-600;
   text-decoration: none;
 
   // &:not(.Button) {
@@ -157,12 +157,12 @@ a {
   &:hover,
   &:active,
   &:focus {
-    color: $theme-primary-v3;
+    color: $theme-primary-700;
     text-decoration: underline;
 
     // &:not(.Button) {
     //   path {
-    //     stroke: $theme-yellow-v2;
+    //     stroke: $theme-yellow-800;
     //   }
     // }
   }
@@ -360,70 +360,70 @@ a.no-shadow,
   color: $theme-primary !important;
 }
 .theme-primary-lighter {
-  color: $theme-primary-v7 !important;
+  color: $theme-primary-300 !important;
 }
 .theme-primary-lightest {
-  color: $theme-primary-v9 !important;
+  color: $theme-primary-100 !important;
 }
 .theme-primary-darker {
-  color: $theme-primary-v3 !important;
+  color: $theme-primary-700 !important;
 }
 .theme-primary-darkest {
-  color: $theme-primary-v1 !important;
+  color: $theme-primary-900 !important;
 }
 
 .theme-yellow {
   color: $theme-yellow !important;
 }
 .theme-yellow-lighter {
-  color: $theme-yellow-v7 !important;
+  color: $theme-yellow-300 !important;
 }
 .theme-yellow-lightest {
-  color: $theme-yellow-v9 !important;
+  color: $theme-yellow-100 !important;
 }
 .theme-yellow-darker {
-  color: $theme-yellow-v3 !important;
+  color: $theme-yellow-700 !important;
 }
 .theme-yellow-darkest {
-  color: $theme-yellow-v1 !important;
+  color: $theme-yellow-900 !important;
 }
 
 .theme-tertiary {
   color: $theme-tertiary !important;
 }
 .theme-tertiary-darker {
-  color: $theme-tertiary-v1 !important;
+  color: $theme-tertiary-900 !important;
 }
 .theme-tertiary-dark {
-  color: $theme-tertiary-v3 !important;
+  color: $theme-tertiary-700 !important;
 }
 .theme-tertiary-light {
-  color: $theme-tertiary-v5 !important;
+  color: $theme-tertiary-500 !important;
 }
 .theme-tertiary-lighter {
-  color: $theme-tertiary-v7 !important;
+  color: $theme-tertiary-300 !important;
 }
 .theme-tertiary-lighest {
-  color: $theme-tertiary-v9 !important;
+  color: $theme-tertiary-100 !important;
 }
 .theme-white {
   color: white !important;
 }
 
 .theme-bg-primary-darkest {
-  background-color: $theme-primary-v1;
+  background-color: $theme-primary-900;
 }
 .theme-bg-primary-darker {
-  background-color: $theme-primary-v3;
+  background-color: $theme-primary-700;
 }
 .theme-bg-primary {
   background-color: $theme-primary;
 }
 .theme-bg-primary-lighter {
-  background-color: $theme-primary-v7;
+  background-color: $theme-primary-300;
 }
 .theme-bg-primary-lightest {
-  background-color: $theme-primary-v9;
+  background-color: $theme-primary-100;
 }
 
 .theme-bg-yellow {
@@ -431,19 +431,19 @@ a.no-shadow,
 }
 
 .theme-bg-tertiary-darkest {
-  background-color: $theme-tertiary-v1;
+  background-color: $theme-tertiary-900;
 }
 .theme-bg-tertiary-darker {
-  background-color: $theme-tertiary-v3;
+  background-color: $theme-tertiary-700;
 }
 .theme-bg-tertiary {
   background-color: $theme-tertiary;
 }
 .theme-bg-tertiary-lighter {
-  background-color: $theme-tertiary-v7;
+  background-color: $theme-tertiary-300;
 }
 .theme-bg-tertiary-lightest {
-  background-color: $theme-tertiary-v9;
+  background-color: $theme-tertiary-100;
 }
 .theme-bg-white {
   background-color: white !important;

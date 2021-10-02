@@ -33,10 +33,7 @@ const _Box: FC<BoxProps> = ({ as, children, component, dynamic, ...props }): JSX
     return <Component {...props}>{children}</Component>;
   }
 
-  return createElement(as || 'div', {
-    ...props,
-    children
-  });
+  return createElement(as || 'div', props, children);
 };
 
 export const Box = memo(_Box);

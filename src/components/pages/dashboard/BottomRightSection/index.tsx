@@ -1,7 +1,7 @@
-/* eslint-disable @typescript-eslint/no-non-null-assertion */
+import { useCallback } from 'react';
 
 import S from 'src/styles/pages/dashboard/index.module.scss';
-import Card from './Card';
+import { Card } from '../shared';
 import { Box } from 'src/components';
 import TeamMember from './TeamMember';
 
@@ -15,9 +15,7 @@ const BottomRightSection = (): JSX.Element => {
       <Box as="section" role="list">
         {Array(4)
           .fill('')
-          .map((_, i) => (
-            <TeamMember key={i} />
-          ))}
+          .map(useCallback((_, i) => <TeamMember index={i} key={i} />, []))}
       </Box>
     </Card>
   );

@@ -10,7 +10,6 @@ import {
   FC
 } from 'react';
 import { PaletteColor, Palette } from '@mui/material/styles';
-// import { Color } from '@mui/material';
 
 export type SubType<Base, Condition> = Pick<
   Base,

@@ -6,7 +6,7 @@
   }
 
   small {
-    color: $theme-tertiary-v3;
+    color: $theme-tertiary-700;
   }
 }
 
@@ -18,7 +18,7 @@
   }
 
   div[class~='flex-fill'] {
-    border-bottom: 0.125em solid $theme-tertiary-v9;
+    border-bottom: 0.0625em solid $theme-tertiary-100;
     padding: 1.5em 0;
   }
 }
@@ -26,7 +26,7 @@
 .rating {
   width: 2.5rem;
   padding: 0.25rem;
-  background-color: $theme-primary-v9;
+  background-color: $theme-primary-100;
   font-size: 0.75em;
   border-radius: 0.25rem;
   color: $theme-primary;

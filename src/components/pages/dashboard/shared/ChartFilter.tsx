@@ -1,13 +1,13 @@
-/* eslint-disable @typescript-eslint/no-non-null-assertion */
+import { useCallback, useState, memo } from 'react';
+
 import TextField from '@mui/material/TextField';
 import MenuItem from '@mui/material/MenuItem';
 
 import S from 'src/styles/pages/dashboard/index.module.scss';
-import { useCallback, useState } from 'react';
 
 const chartFilter = ['1 week', '1 month', '3 months', '6 months', '1 year'];
 
-const ChartFilter = (): JSX.Element => {
+const _ChartFilter = (): JSX.Element => {
   const [chartRange, setChartRange] = useState(chartFilter[3]);
 
   const handleChartFilterChange = useCallback((e) => {
@@ -36,4 +36,4 @@ const ChartFilter = (): JSX.Element => {
   );
 };
 
-export default ChartFilter;
+export const ChartFilter = memo(_ChartFilter);

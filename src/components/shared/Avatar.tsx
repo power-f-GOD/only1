@@ -18,6 +18,8 @@ const _Avatar: FC<{
   href?: string;
   alt?: string;
   style?: CSSProperties;
+  frameColor?: string;
+  frameWidth?: number;
   onClick?: (e: any) => void;
 }> = ({
   size,
@@ -29,7 +31,9 @@ const _Avatar: FC<{
   href,
   style,
   isJPG,
-  alt
+  alt,
+  frameColor,
+  frameWidth
 }): JSX.Element => {
   const Component = href ? Anchor : Box;
   const [hasLoaded, setHasLoaded] = useState(false);
@@ -80,7 +84,10 @@ const _Avatar: FC<{
         href ? 'is-anchor' : ''
       }`.replace(/\s+/gi, ' ')}
       {...useMemo(() => (href ? { href } : {}), [href])}
-      {...useMemo(() => (style ? { style } : {}), [style])}
+      style={{
+        ...(style ? style : {}),
+        ...(frameColor || frameWidth ? { borderColor: frameColor, borderWidth: frameWidth } : {})
+      }}
       _ref={avatarRef as any}>
       {source && !hasErred && (
         <Img

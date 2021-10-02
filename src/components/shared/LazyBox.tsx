@@ -147,11 +147,14 @@ const _LazyBox: FC<BoxProps> = ({ as, children, component, dynamic, ...props }):
     );
   }
 
-  return createElement(as || 'div', {
-    ...props,
-    'data-seen': seen,
-    children: renderChildren && children
-  });
+  return createElement(
+    as || 'div',
+    {
+      ...props,
+      'data-seen': seen
+    },
+    renderChildren ? children : null
+  );
 };
 
 export const LazyBox = memo(_LazyBox);

@@ -15,7 +15,7 @@ import { useTheme } from '@mui/material';
 
 import S from 'src/styles/pages/dashboard/index.module.scss';
 import { Box } from 'src/components';
-import { barChartData } from './data';
+import { barChartData } from '../data';
 
 const BarChart: FC<{ className?: string; height?: number; width?: number }> = ({
   className,
@@ -44,16 +44,26 @@ const BarChart: FC<{ className?: string; height?: number; width?: number }> = ({
           width={width}
           height={height}
           data={barChartData}
-          margin={{
-            top: 5,
-            right: 0,
-            left: -30,
-            bottom: -10
-          }}>
+          margin={useMemo(
+            () => ({
+              top: 5,
+              right: 0,
+              left: -30,
+              bottom: -10
+            }),
+            []
+          )}>
           <CartesianGrid strokeDasharray="0" stroke={theme.palette.grey[100]} vertical={false} />
           <XAxis dataKey="month" {...commonAxisProps} />
-          <YAxis {...commonAxisProps} />
-          <Tooltip />
+          <YAxis {...commonAxisProps} tickCount={6} />
+          <Tooltip
+            cursor={useMemo(
+              () => ({ fill: theme.palette.grey[100] }),
+              //eslint-disable-next-line
+              []
+            )}
+            wrapperClassName={S.BarChartCustomTooltip}
+          />
           {/* <Legend /> */}
           <Bar dataKey="received" fill={theme.palette.primary.dark} barSize={6} />
           <Bar dataKey="completed" fill={theme.palette.warning.dark} barSize={6} />
