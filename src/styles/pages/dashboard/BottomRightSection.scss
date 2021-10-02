@@ -1,3 +1,34 @@
 .BottomRightSection {
   grid-column: 9 / 13;
+
+  span[class^='Avatar'] {
+    font-size: 0.65em;
+  }
+
+  small {
+    color: $theme-tertiary-v3;
+  }
+}
+
+.TeamMember {
+  &:last-child {
+    div[class~='flex-fill'] {
+      border-bottom: none;
+    }
+  }
+
+  div[class~='flex-fill'] {
+    border-bottom: 0.125em solid $theme-tertiary-v9;
+    padding: 1.5em 0;
+  }
+}
+
+.rating {
+  width: 2.5rem;
+  padding: 0.25rem;
+  background-color: $theme-primary-v9;
+  font-size: 0.75em;
+  border-radius: 0.25rem;
+  color: $theme-primary;
+  text-align: center;
 }

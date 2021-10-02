@@ -1,20 +1,57 @@
 import { useState, useCallback, useContext, useEffect, memo } from 'react';
+import { useRouter } from 'next/router';
 
-import IconButton from '@material-ui/core/IconButton';
+import IconButton from '@mui/material/IconButton';
 
 import { AppWindowContext } from 'src/pages/_app';
 import { Box } from '.';
 import { SVGIcon, Avatar } from './shared';
 import { SVGIconName } from 'src/types';
-import { GetImage } from 'src/utils';
+import { GetImage, delay, createIntersectionObserver } from 'src/utils';
 
 const actions = ['search', 'notification'];
+let observer: IntersectionObserver;
 
 const AppHeader = (): JSX.Element => {
   const windowWidth = useContext(AppWindowContext);
   const isPC = windowWidth > 991 && typeof window !== 'undefined';
   const [open] = useState(false);
+  const { pathname } = useRouter();
   // const [renderNav, setRenderNav] = useState(isPC);
+
+  useEffect(() => {
+    let page: Element;
+    let observee: Element;
+
+    delay(500, () => {
+      page = document.querySelector('#__next > main')!;
+
+      if (page && pathname) {
+        observer = createIntersectionObserver(
+          null,
+          (entries) => {
+            entries.forEach((entry) => {
+              const { isIntersecting } = entry;
+              document.body.dataset.scrolled = '' + !isIntersecting;
+            });
+          },
+          { threshold: [0, 1] }
+        );
+
+        observee = page?.children[0];
+
+        if (observee) {
+          observer.observe(observee);
+        }
+      }
+    });
+
+    return () => {
+      if (observee && observer) {
+        observer.unobserve(observee);
+      }
+    };
+  }, [pathname]);
 
   useEffect(() => {
     if (!isPC) {

@@ -54,7 +54,7 @@ const AppNav = (): JSX.Element => {
   }, [open, isPC]);
 
   return (
-    <Box as="nav" className={`AppNav custom-scroll-bar anim__InRightBig`}>
+    <Box as="nav" className={`AppNav custom-scroll-bar`}>
       <Logo />
 
       {!isPC && (renderNav || open) && (

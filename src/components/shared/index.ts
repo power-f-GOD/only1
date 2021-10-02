@@ -10,3 +10,4 @@ export * from './SVG';
 export * from './SVG.Icons';
 export * from './SVG.Shapes';
 export * from './Avatar';
+export * from './ProgressPie';

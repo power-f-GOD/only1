@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
-import TextField from '@material-ui/core/TextField';
-import MenuItem from '@material-ui/core/MenuItem';
+import TextField from '@mui/material/TextField';
+import MenuItem from '@mui/material/MenuItem';
 
 import S from 'src/styles/pages/dashboard/index.module.scss';
 import { useCallback, useState } from 'react';
@@ -20,7 +20,8 @@ const ChartFilter = (): JSX.Element => {
       size="small"
       className={`${S.filterSelect} ms-4`}
       value={chartRange}
-      onChange={handleChartFilterChange}>
+      onChange={handleChartFilterChange}
+      variant="standard">
       {chartFilter.map(
         useCallback(
           (option) => (

@@ -1,0 +1,27 @@
+.ProgressPie {
+  position: relative;
+  align-self: center;
+
+  &.type--A {
+    strong {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      display: grid;
+      top: 0;
+      font-size: 0.75em;
+      place-items: center;
+      transition: 0.75s;
+    }
+  }
+
+  .MuiCircularProgress-root {
+    &:first-child {
+      position: absolute;
+    }
+  }
+
+  .MuiCircularProgress-circleDeterminate {
+    transition: stroke-dashoffset 0.75s; // cubic-bezier(0.75, 0, 0.5, 1.125) 0.1s;
+  }
+}

@@ -1,11 +1,12 @@
-/* eslint-disable @typescript-eslint/no-non-null-assertion */
-import IconButton from '@material-ui/core/IconButton';
+import { useCallback, memo } from 'react';
+
+import IconButton from '@mui/material/IconButton';
 
 import S from 'src/styles/pages/dashboard/index.module.scss';
 import Card from './Card';
 import ChartFilter from './ChartFilter';
 import { Box, SVGIcon } from 'src/components';
-// import { useCallback, useState } from 'react';
+import BarChart from './BarChart';
 
 const chartKeys = ['Received', 'Completed'];
 
@@ -17,12 +18,17 @@ const TopRightSection = (): JSX.Element => {
           Task Activities
         </Box>
         <Box className={`${S.keyFilterWrapper} d-flex align-items-center ms-auto`}>
-          {chartKeys.map((key) => (
-            <Box as="span" className={`${S.blueKey} pe-3 pe-lg-4 key`} key={key}>
-              <Box as="span" className={`${S.box} ${S[key.toLowerCase()]} me-2`} />
-              {key}
-            </Box>
-          ))}
+          {chartKeys.map(
+            useCallback(
+              (key) => (
+                <Box as="span" className={`${S.blueKey} pe-3 pe-lg-4 key`} key={key}>
+                  <Box as="span" className={`${S.box} ${S[key.toLowerCase()]} me-2`} />
+                  {key}
+                </Box>
+              ),
+              []
+            )
+          )}
 
           <ChartFilter />
         </Box>
@@ -30,8 +36,10 @@ const TopRightSection = (): JSX.Element => {
           <SVGIcon name="more" />
         </IconButton>
       </Box>
+
+      <BarChart />
     </Card>
   );
 };
 
-export default TopRightSection;
+export default memo(TopRightSection);

@@ -3,11 +3,14 @@
 import { createContext, useState, useEffect, useMemo } from 'react';
 import { AppProps } from 'next/app';
 import Head from 'next/head';
-import { StylesProvider } from '@material-ui/core/styles';
+
+import { StylesProvider } from '@mui/styles';
+import { ThemeProvider } from '@mui/material/styles';
 
 import 'src/styles/index.scss';
 import { AppNav, AppHeader } from 'src/components';
-import { throttle, delay } from 'src/utils';
+import { throttle, delay, theme } from 'src/utils';
+import { useRouter } from 'next/router';
 
 export const AppContext = createContext({});
 export const AppWindowContext = createContext<number>(globalThis.innerWidth);
@@ -16,6 +19,7 @@ const App = ({ Component, pageProps }: AppProps): JSX.Element => {
   const _window = globalThis || window;
   const [windowWidth, setWindowWidth] = useState(_window.innerWidth);
   const appContextValue = useMemo(() => ({}), []);
+  const { pathname } = useRouter();
 
   useEffect(() => {
     let _throttle: NodeJS.Timeout;
@@ -32,13 +36,22 @@ const App = ({ Component, pageProps }: AppProps): JSX.Element => {
         'afterbegin',
         `
           <link
-            href="https://fonts.googleapis.com/css?family=Inter:400,600&amp;display=swap"
+            href="https://fonts.googleapis.com/css?family=Inter:400,500,600&amp;display=swap"
             rel="stylesheet"
           />
         `
       );
     });
   }, [_window]);
+
+  useEffect(() => {
+    if (pathname) {
+      const div = document.createElement('div');
+
+      div.id = 'page-scroll-observer';
+      document.querySelector('#__next > main')?.insertAdjacentElement('afterbegin', div);
+    }
+  }, [pathname]);
 
   return (
     <AppContext.Provider value={appContextValue}>
@@ -51,9 +64,11 @@ const App = ({ Component, pageProps }: AppProps): JSX.Element => {
         </Head>
 
         <StylesProvider injectFirst>
-          <AppNav />
-          <AppHeader />
-          <Component {...pageProps} />
+          <ThemeProvider theme={theme}>
+            <AppNav />
+            <AppHeader />
+            <Component {...pageProps}></Component>
+          </ThemeProvider>
         </StylesProvider>
       </AppWindowContext.Provider>
     </AppContext.Provider>

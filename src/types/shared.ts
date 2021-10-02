@@ -9,6 +9,32 @@ import {
   ImgHTMLAttributes,
   FC
 } from 'react';
+import { PaletteColor, Palette } from '@mui/material/styles';
+// import { Color } from '@mui/material';
+
+export type SubType<Base, Condition> = Pick<
+  Base,
+  {
+    [Key in keyof Base]: Base[Key] extends Condition ? Key : never;
+  }[keyof Base]
+>;
+
+export type SubPaletteColor = keyof SubType<Palette, PaletteColor>;
+
+export interface PaletteColorVariant {
+  light: React.CSSProperties['color'];
+  main: React.CSSProperties['color'];
+  dark: React.CSSProperties['color'];
+}
+
+export type PieColor =
+  | 'primary'
+  | 'secondary'
+  // | 'success'
+  | 'warning'
+  | 'error'
+  // | 'grey_dark'
+  | 'grey';
 
 export interface ImgProps
   extends DetailedHTMLProps<ImgHTMLAttributes<HTMLImageElement>, HTMLImageElement> {
