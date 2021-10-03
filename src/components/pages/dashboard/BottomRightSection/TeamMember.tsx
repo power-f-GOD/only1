@@ -25,7 +25,7 @@ const TeamMember: FC<{ className?: string; src?: string; index?: number }> = ({
       <Box className="d-flex align-items-center flex-fill pe-4">
         <Box className="pe-3">
           <Box as="span" className="h6 my-0">
-            TeamMember Name
+            Team Member
           </Box>
           <Box as="small">Job Description</Box>
         </Box>

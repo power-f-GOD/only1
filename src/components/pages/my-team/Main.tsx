@@ -7,10 +7,14 @@ import { GetImage } from 'src/utils';
 const Main = (): JSX.Element => {
   return (
     <Container as="main" className={`${S.Main}`}>
-      {Array(60)
+      {Array(25)
         .fill('')
         .map((_, i) => (
-          <LazyBox key={i} noFade className="Card">
+          <LazyBox
+            key={i}
+            noFade
+            className="Card anim__fadeInUp"
+            style={{ animationDelay: `${i * 0.1}s` }}>
             <Box className="mb-2 w-100">
               <ButtonMenu
                 buttonType="icon-button"

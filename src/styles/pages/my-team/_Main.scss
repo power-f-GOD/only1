@@ -9,6 +9,7 @@
     padding-bottom: 1em;
     position: relative;
     transition: 0.4s;
+    animation-fill-mode: backwards;
 
     &:hover,
     &:focus-within {
@@ -36,8 +37,8 @@
       display: block;
       font-size: 0.75em;
       font-weight: bold;
-      padding: 1.5em;
-      background-color: $theme-primary-100;
+      padding: 1.75em;
+      background-color: rgba($prim-r, $prim-g, $prim-b, 0.05);
       color: $theme-primary;
       border-radius: 0 0 1em 1em;
       transform: translateY(1.5em);

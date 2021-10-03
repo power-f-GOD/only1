@@ -17,6 +17,7 @@ const AppHeader = (): JSX.Element => {
   const isPC = windowWidth > 991 && typeof window !== 'undefined';
   const [open] = useState(false);
   const { pathname } = useRouter();
+  const pageName = pathname === '/' ? 'Dashboard' : pathname.slice(1).split('-').join(' ');
   // const [renderNav, setRenderNav] = useState(isPC);
 
   useEffect(() => {
@@ -30,7 +31,7 @@ const AppHeader = (): JSX.Element => {
           (entries) => {
             entries.forEach((entry) => {
               const { isIntersecting } = entry;
-
+              // console.log(!isIntersecting, 'FFFF');
               document.body.dataset.scrolled = '' + !isIntersecting;
             });
           },
@@ -44,7 +45,7 @@ const AppHeader = (): JSX.Element => {
         }
       }
     });
-  }, [pathname]);
+  }, [pathname, pageName]);
 
   useEffect(() => {
     if (!isPC) {
@@ -56,8 +57,8 @@ const AppHeader = (): JSX.Element => {
 
   return (
     <Box as="header" className={`AppHeader custom-scroll-bar`}>
-      <Box as="h1" className="h4 my-0">
-        Dashboard
+      <Box as="h1" className="h4 my-0 text-capitalize">
+        {pageName}
       </Box>
 
       <Box as="ul" className={`AppHeader__actions-container`}>

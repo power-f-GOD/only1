@@ -109,6 +109,9 @@ export type TransitionAnimName =
   | 'scaleY';
 
 export type SVGIconName =
+  | 'caret-right'
+  | 'caret-left'
+  | 'nxtui-logo'
   | 'more'
   | 'caret-down'
   | 'search'

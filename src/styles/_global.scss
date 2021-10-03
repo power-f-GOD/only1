@@ -265,6 +265,15 @@ input[type='password'] {
   font-size: 1.125em;
 }
 
+.MuiPopover-paper {
+  border-radius: 0.75em;
+  min-width: 7.5em;
+
+  li:first-child {
+    background-color: rgba($tertiary-r, $tertiary-g, $tertiary-b, 0.05);
+  }
+}
+
 [class~='col'],
 [class*='col-'],
 .container,

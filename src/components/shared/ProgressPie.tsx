@@ -28,7 +28,9 @@ const _ProgressPie: FC<
   const [value, setValue] = useState(0);
 
   useEffect(() => {
-    delay(300, () => setValue(_value || 0));
+    delay(400).then(() => {
+      setValue(_value || 0);
+    });
   }, [_value]);
 
   return (
