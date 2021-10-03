@@ -1,0 +1,56 @@
+.Main {
+  display: grid;
+
+  div[class~='Card'] {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    flex-direction: column;
+    padding-bottom: 1em;
+    position: relative;
+    transition: 0.4s;
+
+    &:hover,
+    &:focus-within {
+      transform: translateY(-0.5em);
+      box-shadow: 0 2.375em 4em rgba(60, 69, 123, 0.13);
+      z-index: 50;
+    }
+
+    div:first-of-type {
+      display: flex;
+      align-items: center;
+    }
+
+    strong {
+      font-size: 1.25em;
+      font-weight: normal;
+    }
+
+    small {
+      font-size: 0.875em;
+      color: $theme-tertiary-700;
+    }
+
+    em {
+      display: block;
+      font-size: 0.75em;
+      font-weight: bold;
+      padding: 1.5em;
+      background-color: $theme-primary-100;
+      color: $theme-primary;
+      border-radius: 0 0 1em 1em;
+      transform: translateY(1.5em);
+      font-style: normal;
+      width: calc(100% + 4em);
+    }
+  }
+
+  @media screen and (min-width: 992px) {
+    $gap: 1.625em;
+
+    row-gap: $gap;
+    column-gap: $gap;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}

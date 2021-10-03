@@ -11,3 +11,5 @@ export * from './SVG.Icons';
 export * from './SVG.Shapes';
 export * from './Avatar';
 export * from './ProgressPie';
+export * from './ButtonMenu';
+export * from './Card';

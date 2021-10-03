@@ -3,7 +3,7 @@ import { NextPage } from 'next';
 
 import { Container } from 'react-bootstrap';
 
-import S from '../styles/pages/dashboard/index.module.scss';
+import S from 'src/styles/pages/dashboard/index.module.scss';
 import { AppHead } from 'src/components';
 import {
   TopLeftSection,

@@ -1,9 +1,8 @@
 @import '../../constants';
 
-@import './main.scss';
-@import './Card';
-@import './Chart';
-@import './TopLeftSection.scss';
-@import './TopRightSection.scss';
-@import './BottomLeftSection.scss';
-@import './BottomRightSection.scss';
+@import 'index';
+@import 'Chart';
+@import 'TopLeftSection';
+@import 'TopRightSection';
+@import 'BottomLeftSection';
+@import 'BottomRightSection';

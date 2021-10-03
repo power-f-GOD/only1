@@ -25,7 +25,14 @@ import { AppWindowContext } from 'src/pages/_app';
 
 let observer: IntersectionObserver;
 
-const _LazyBox: FC<BoxProps> = ({ as, children, component, dynamic, ...props }): JSX.Element => {
+const _LazyBox: FC<BoxProps & { noFade: boolean }> = ({
+  as,
+  children,
+  component,
+  dynamic,
+  noFade,
+  ...props
+}): JSX.Element => {
   const Component = component;
   const windowWidth = useContext(AppWindowContext);
   const [rendered, setRendered] = useState(!dynamic);
@@ -127,7 +134,7 @@ const _LazyBox: FC<BoxProps> = ({ as, children, component, dynamic, ...props }):
     props.ref = elementRef as any;
   }
 
-  if (!props.style?.minHeight && rendered) {
+  if (!noFade && !props.style?.transitionDuration && rendered) {
     props.style = {
       ...(props.style || {}),
       opacity: renderChildren ? 1 : 0,

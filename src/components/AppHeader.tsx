@@ -32,6 +32,7 @@ const AppHeader = (): JSX.Element => {
           (entries) => {
             entries.forEach((entry) => {
               const { isIntersecting } = entry;
+
               document.body.dataset.scrolled = '' + !isIntersecting;
             });
           },

@@ -4,7 +4,7 @@
   width: $size;
   height: $size;
   overflow: hidden;
-  border-radius: 1em !important;
+  border-radius: 25% !important;
   display: inline-flex;
   max-width: 100%;
   margin-bottom: 0.125rem;
@@ -27,7 +27,7 @@
     object-position: center;
     position: absolute;
     font-size: 1em;
-    border-radius: inherit;
+    border-radius: 10%;
   }
 
   &.size-- {
@@ -127,11 +127,11 @@
   }
 
   &.has-frame {
-    border: 0.25rem solid #eee;
+    border: 0.25rem solid $theme-tertiary-100;
 
-    img {
-      border-radius: 0.65em;
-    }
+    // img {
+    //   // border-radius: 0.65em;
+    // }
   }
 
   .LoadingSkeleton {

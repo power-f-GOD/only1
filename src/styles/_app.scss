@@ -4,6 +4,13 @@ body[data-scrolled='true'] {
       box-shadow: 0 1em 1.25em rgb(57 84 225 / 8%);
     }
   }
+
+  [class*='MyTeam'] {
+    aside {
+      transform: translateY(1.25em);
+      max-height: calc(100vh - 10em);
+    }
+  }
 }
 
 #__next {
@@ -14,7 +21,7 @@ body[data-scrolled='true'] {
   min-height: 100vh;
   max-height: 100vh;
   display: grid;
-  overflow-x: hidden;
+  overflow-x: auto; // hidden;
   background-color: $theme-primary;
   @extend .anim__fadeIn;
 
@@ -33,7 +40,7 @@ body[data-scrolled='true'] {
     }
 
     main {
-      overflow-x: hidden;
+      overflow-x: clip; // hidden;
       background: $app-bg;
       padding: 1em;
       @extend .anim__fadeInUp;
@@ -44,6 +51,7 @@ body[data-scrolled='true'] {
     height: 1.25em;
     position: absolute;
     top: -7.5em;
+    width: 100%;
   }
 
   @media screen and (min-width: 992px) {

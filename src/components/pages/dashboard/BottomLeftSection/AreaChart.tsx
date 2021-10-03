@@ -35,7 +35,7 @@ const AreaChart: FC<{ className?: string; height?: number; width?: number }> = (
         [height, width]
       )}>
       <ResponsiveContainer width="100%" height="100%">
-        <_AreaChart width={width} height={height} data={areaChartData}>
+        <_AreaChart height={height} data={areaChartData}>
           <defs>
             <linearGradient id="act" x1="0" y1="0" x2="0" y2="1">
               <stop offset="5%" stopColor={theme.palette.primary.light} stopOpacity={0.8} />

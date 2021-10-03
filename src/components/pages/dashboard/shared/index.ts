@@ -1,2 +1,2 @@
-export * from './Card';
+export * from '../../../shared/Card';
 export * from './ChartFilter';

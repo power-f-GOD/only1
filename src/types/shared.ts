@@ -9,7 +9,9 @@ import {
   ImgHTMLAttributes,
   FC
 } from 'react';
-import { PaletteColor, Palette } from '@mui/material/styles';
+import { ButtonTypeMap, Palette, PaletteColor } from '@mui/material';
+
+export type MuiButtonProps = ButtonTypeMap['props'];
 
 export type SubType<Base, Condition> = Pick<
   Base,
@@ -123,6 +125,7 @@ export type SVGIconName =
 export type SVGShapeName = '';
 
 export type BoxAs =
+  | 'em'
   | 'strong'
   | 'address'
   | 'nav'

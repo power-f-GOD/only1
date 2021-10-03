@@ -1,0 +1,21 @@
+.Aside {
+  $offset: 7.5em;
+
+  max-height: calc(100vh - #{$offset + 1.25em});
+  height: auto;
+  position: sticky;
+  overflow-y: auto;
+  border-radius: 0.75em;
+  animation-fill-mode: backwards;
+  box-shadow: 0 0.75em 1.125em rgba($prim-r, $prim-g, $prim-b, 0.075);
+  transition: 0.35s;
+
+  div[class*='Card'] {
+    height: 50em;
+    box-shadow: unset;
+  }
+
+  @media screen and (min-width: 992px) {
+    top: $offset;
+  }
+}

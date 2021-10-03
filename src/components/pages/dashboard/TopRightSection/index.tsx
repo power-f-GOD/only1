@@ -1,10 +1,8 @@
 import { useCallback, memo } from 'react';
 
-import IconButton from '@mui/material/IconButton';
-
 import S from 'src/styles/pages/dashboard/index.module.scss';
 import { Card, ChartFilter } from '../shared';
-import { Box, SVGIcon } from 'src/components';
+import { Box, SVGIcon, ButtonMenu } from 'src/components';
 import BarChart from './BarChart';
 
 const chartKeys = ['Received', 'Completed'];
@@ -31,9 +29,13 @@ const TopRightSection = (): JSX.Element => {
 
           <ChartFilter />
         </Box>
-        <IconButton className={S.moreButton}>
-          <SVGIcon name="more" />
-        </IconButton>
+
+        <ButtonMenu
+          buttonType="icon-button"
+          buttonClassName="more-button"
+          buttonConstantContent={<SVGIcon name="more" fontSize="inherit" />}
+          options={[{ value: 'lorem' }, { value: 'ipsum' }, { value: 'dolor' }]}
+        />
       </Box>
 
       <BarChart />

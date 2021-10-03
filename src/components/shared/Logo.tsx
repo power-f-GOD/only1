@@ -14,7 +14,7 @@ const _Logo: FC<{
       className={`Logo top px-0 ${className || ''} ${preserveText ? 'preserve-text' : ''}`.trim()}>
       <Anchor routeLink href="/">
         <SVGIcon name="only1-logo" className="me-2" />
-        <Box as="strong" className="theme-tertiary-darkest">
+        <Box as="strong" className="theme-tertiary-700est">
           ONLY1
         </Box>
       </Anchor>

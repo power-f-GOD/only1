@@ -2,11 +2,9 @@ import { useCallback, memo } from 'react';
 
 import { Container } from 'react-bootstrap';
 
-import IconButton from '@mui/material/IconButton';
-
 import S from 'src/styles/pages/dashboard/index.module.scss';
 import { Card } from '../shared';
-import { SVGIcon, Box, ProgressPie } from 'src/components/shared';
+import { SVGIcon, Box, ProgressPie, ButtonMenu } from 'src/components/shared';
 import { pieChartData } from '../data';
 import { SubPaletteColor } from 'src/types';
 
@@ -37,9 +35,12 @@ const TopLeftSection = (): JSX.Element => {
                 <Box as="h2" className="h6">
                   {title}
                 </Box>
-                <IconButton className={S.moreButton}>
-                  <SVGIcon name="more" />
-                </IconButton>
+                <ButtonMenu
+                  buttonType="icon-button"
+                  buttonClassName="more-button"
+                  buttonConstantContent={<SVGIcon name="more" fontSize="inherit" />}
+                  options={[{ value: 'lorem' }, { value: 'ipsum' }, { value: 'dolor' }]}
+                />
               </Box>
               <Box className="d-flex justify-content-between align-items-center mt-3">
                 <ProgressPie value={percentage} color={pieColor} type="A" />
@@ -48,7 +49,7 @@ const TopLeftSection = (): JSX.Element => {
                   <Box as="strong" className="">
                     {count}
                   </Box>
-                  <Box as="small" className="theme-tertiary-dark">
+                  <Box as="small" className="theme-tertiary-700">
                     {countText}
                   </Box>
                 </Box>
