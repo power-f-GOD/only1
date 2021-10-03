@@ -72,11 +72,13 @@ const _LazyBox: FC<BoxProps & { noFade: boolean }> = ({
               boundingClientRect: { bottom }
             } = entry;
 
-            if (bottom <= 16) {
-              setSeen(true);
-            }
+            if (elementRef.current) {
+              if (bottom <= 16) {
+                setSeen(true);
+              }
 
-            setRenderChildren(isIntersecting);
+              setRenderChildren(isIntersecting);
+            }
           });
         },
         { threshold: [0, 1] }

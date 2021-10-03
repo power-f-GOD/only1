@@ -53,24 +53,27 @@ const App = ({ Component, pageProps }: AppProps): JSX.Element => {
   }, [pathname]);
 
   return (
-    <AppContext.Provider value={appContextValue}>
-      <AppWindowContext.Provider value={windowWidth}>
-        <Head>
-          <meta name="description" content="Author: Godspower Sunday, Desc: Only1 UI Dashboard." />
-          <meta name="keywords" content="UI's, dashboards ui examples" />
-          <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-          {/* <link rel="icon" href="/favicon.ico" /> */}
-        </Head>
+    <ThemeProvider theme={theme}>
+      <AppContext.Provider value={appContextValue}>
+        <AppWindowContext.Provider value={windowWidth}>
+          <Head>
+            <meta
+              name="description"
+              content="Author: Godspower Sunday, Desc: Only1 UI Dashboard."
+            />
+            <meta name="keywords" content="UI's, dashboards ui examples" />
+            <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+            {/* <link rel="icon" href="/favicon.ico" /> */}
+          </Head>
 
-        <StylesProvider injectFirst>
-          <ThemeProvider theme={theme}>
+          <StylesProvider injectFirst>
             <AppNav />
             <AppHeader />
             <Component {...pageProps}></Component>
-          </ThemeProvider>
-        </StylesProvider>
-      </AppWindowContext.Provider>
-    </AppContext.Provider>
+          </StylesProvider>
+        </AppWindowContext.Provider>
+      </AppContext.Provider>
+    </ThemeProvider>
   );
 };
 

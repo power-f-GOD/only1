@@ -20,11 +20,9 @@ const AppHeader = (): JSX.Element => {
   // const [renderNav, setRenderNav] = useState(isPC);
 
   useEffect(() => {
-    let page: Element;
-    let observee: Element;
-
     delay(500, () => {
-      page = document.querySelector('#__next > main')!;
+      const page: Element = document.querySelector('#__next > main')!;
+      let observed: Element;
 
       if (page && pathname) {
         observer = createIntersectionObserver(
@@ -39,19 +37,13 @@ const AppHeader = (): JSX.Element => {
           { threshold: [0, 1] }
         );
 
-        observee = page?.children[0];
+        observed = page?.children[0];
 
-        if (observee) {
-          observer.observe(observee);
+        if (observed) {
+          observer.observe(observed);
         }
       }
     });
-
-    return () => {
-      if (observee && observer) {
-        observer.unobserve(observee);
-      }
-    };
   }, [pathname]);
 
   useEffect(() => {
