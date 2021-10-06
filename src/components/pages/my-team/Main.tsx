@@ -1,7 +1,7 @@
 import { Container } from 'react-bootstrap';
 
 import S from 'src/styles/pages/my-team/index.module.scss';
-import { Box, SVGIcon, Avatar, LazyBox, ButtonMenu } from 'src/components';
+import { Box, Avatar, LazyBox, Card } from 'src/components';
 import { GetImage } from 'src/utils';
 
 const Main = (): JSX.Element => {
@@ -10,23 +10,18 @@ const Main = (): JSX.Element => {
       {Array(25)
         .fill('')
         .map((_, i) => (
-          <LazyBox
+          <Card
+            component={LazyBox}
             key={i}
-            noFade
             className="Card anim__fadeInUp"
-            style={{ animationDelay: `${i * 0.1}s` }}>
-            <Box className="mb-2 w-100">
-              <ButtonMenu
-                buttonType="icon-button"
-                buttonClassName="more-button ms-auto"
-                buttonConstantContent={<SVGIcon name="more" fontSize="inherit" />}
-                options={[{ value: 'lorem' }, { value: 'ipsum' }, { value: 'dolor' }]}
-              />
-            </Box>
+            style={{ animationDelay: `${i * 0.1}s` }}
+            options={[{ value: 'lorem' }, { value: 'ipsum' }, { value: 'dolor' }]}>
+            {/* <Box className="mb-2 w-100"/> */}
 
             <Avatar
               size="medium"
               variant="square"
+              className="mt-2"
               src={GetImage.misc((i || 0) % 2 === 0 ? 'lady' : 'guy')}
             />
 
@@ -37,7 +32,7 @@ const Main = (): JSX.Element => {
             </Box>
 
             <Box as="em">JOB DESCRIPTION</Box>
-          </LazyBox>
+          </Card>
         ))}
     </Container>
   );

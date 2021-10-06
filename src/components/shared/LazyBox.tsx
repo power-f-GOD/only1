@@ -4,11 +4,10 @@
 
   The hallmark of this file is the <Box> component, and the idea is to, as much as possible, stick to using components throughout app and not HTML tags for the sake of consistency and standardization: We're writing React not (just) HTML. Copy? :)
 
-  Also, FWIW, the idea of the Box component (and the other components here) is similar to the idea of Material-UI's Box.
+  Also, FWIW, the idea of the Box component is similar to the idea of Material-UI's Box.
   I chose to not add Material-UI to this project as it would increase the size of the whole bundle, so I'm trying as much as possible to keep this project lean and so it doesn't have too many deps (dependencies)!
  */
 
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import {
   FC,
   useState,
@@ -25,12 +24,12 @@ import { AppWindowContext } from 'src/pages/_app';
 
 let observer: IntersectionObserver;
 
-const _LazyBox: FC<BoxProps & { noFade: boolean }> = ({
+const _LazyBox: FC<BoxProps> = ({
   as,
   children,
+  fadeIn,
   component,
   dynamic,
-  noFade,
   ...props
 }): JSX.Element => {
   const Component = component;
@@ -44,10 +43,10 @@ const _LazyBox: FC<BoxProps & { noFade: boolean }> = ({
   const recalculate = useCallback(
     (element: HTMLElement) => {
       if (element.children.length || element.innerHTML) {
-        element.style.height = 'auto';
+        element.style.minHeight = 'auto';
         delay(windowWidth < 768 ? 200 : 100).then(() => {
           if (element && (element.children.length || element.innerHTML)) {
-            element.style.height = `${element.offsetHeight}px`;
+            element.style.minHeight = `${element.offsetHeight}px`;
             setShouldRecalculate(false);
           }
         });
@@ -60,7 +59,7 @@ const _LazyBox: FC<BoxProps & { noFade: boolean }> = ({
     let element: HTMLElement | null;
 
     setRendered(true);
-    delay(25).then(() => {
+    delay(50).then(() => {
       element = elementRef.current;
 
       observer = createIntersectionObserver(
@@ -102,7 +101,7 @@ const _LazyBox: FC<BoxProps & { noFade: boolean }> = ({
 
       setShouldRecalculate(true);
 
-      if (element && element.style.height && element.style.height !== 'auto') {
+      if (element && element.style.minHeight && element.style.minHeight !== 'auto') {
         setRenderChildren(true);
         delay(500).then(() => {
           if (elementRef.current) {
@@ -116,12 +115,12 @@ const _LazyBox: FC<BoxProps & { noFade: boolean }> = ({
 
   useEffect(() => {
     if (renderChildren) {
-      delay(50).then(() => {
+      delay(75).then(() => {
         const element = elementRef.current;
 
         if (
           element &&
-          (shouldRecalculate || !element.style.height || element.style.height === 'auto')
+          (shouldRecalculate || !element.style.minHeight || element.style.minHeight === 'auto')
         ) {
           recalculate(element);
         }
@@ -136,13 +135,18 @@ const _LazyBox: FC<BoxProps & { noFade: boolean }> = ({
     props.ref = elementRef as any;
   }
 
-  if (!noFade && !props.style?.transitionDuration && rendered) {
-    props.style = {
-      ...(props.style || {}),
-      opacity: renderChildren ? 1 : 0,
-      transitionProperty: 'opacity, transform',
-      transitionDuration: '0.5s'
-    };
+  if (rendered) {
+    if (
+      (fadeIn || (fadeIn === undefined && windowWidth > 767)) &&
+      !props.style?.transitionDuration
+    ) {
+      props.style = {
+        ...(props.style || {}),
+        opacity: renderChildren ? 1 : 0,
+        transitionProperty: 'opacity, transform',
+        transitionDuration: '0.5s'
+      };
+    }
   }
 
   //Fix for SSR error: 'Warning: Expected server HTML to contain a matching <div> in <nav>'
@@ -162,7 +166,7 @@ const _LazyBox: FC<BoxProps & { noFade: boolean }> = ({
       ...props,
       'data-seen': seen
     },
-    renderChildren ? children : null
+    renderChildren && children
   );
 };
 

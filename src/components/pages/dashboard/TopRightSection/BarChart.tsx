@@ -1,4 +1,4 @@
-import { FC, memo, useMemo } from 'react';
+import { FC, memo, useMemo, useContext } from 'react';
 
 import {
   BarChart as _BarChart,
@@ -15,17 +15,17 @@ import { useTheme } from '@mui/material';
 
 import S from 'src/styles/pages/dashboard/index.module.scss';
 import { Box } from 'src/components';
-import { barChartData } from '../data';
+import { DashboardContext } from 'src/pages/dashboard';
 
 const BarChart: FC<{ className?: string; height?: number; width?: number }> = ({
   className,
   height: _height,
   width: _width
 }) => {
+  const { task_activities } = useContext(DashboardContext);
   const theme = useTheme();
   const width = _width || 680;
   const height = _height || 280;
-
   const commonAxisProps = {
     stroke: theme.palette.grey[500],
     axisLine: false,
@@ -43,7 +43,7 @@ const BarChart: FC<{ className?: string; height?: number; width?: number }> = ({
         <_BarChart
           width={width}
           height={height}
-          data={barChartData}
+          data={task_activities}
           margin={useMemo(
             () => ({
               top: 5,

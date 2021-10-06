@@ -11,6 +11,14 @@ import {
 } from 'react';
 import { ButtonTypeMap, Palette, PaletteColor } from '@mui/material';
 
+export interface CardProps extends Partial<BoxProps> {
+  title?: string;
+  header?: JSX.Element;
+  options?: Options;
+}
+
+export type Options = Array<{ icon?: SVGIconName | FC; value?: string }>;
+
 export type MuiButtonProps = ButtonTypeMap['props'];
 
 export type SubType<Base, Condition> = Pick<
@@ -43,7 +51,7 @@ export interface ImgProps
 }
 
 export interface IconProps {
-  name?: SVGIconName & string;
+  name?: SVGIconName;
   className?: string;
   size?: 'tiny' | 'small' | 'medium' | 'large' | 'inherit';
   crop?: boolean;
@@ -77,10 +85,11 @@ export interface BoxProps
     >
   > {
   as?: BoxAs;
-  component?: FC<any>;
+  component?: FC;
   _ref?: RefObject<
     HTMLElement & HTMLParagraphElement & HTMLOListElement & HTMLUListElement & HTMLLIElement
   >;
+  fadeIn?: boolean;
   dynamic?: boolean;
   'data-anim'?: TransitionAnimName;
 }

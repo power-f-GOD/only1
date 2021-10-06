@@ -7,11 +7,10 @@ import TeamMember from './TeamMember';
 
 const BottomRightSection = (): JSX.Element => {
   return (
-    <Card as="section" className={`${S.BottomRightSection} pe-0 pb-2`}>
-      <Box as="h2" className="h6 pe-3">
-        Team Member Performance
-      </Box>
-
+    <Card
+      as="section"
+      title="Team Member Performance"
+      className={`${S.BottomRightSection} pe-0 pb-2`}>
       <Box as="section" role="list">
         {Array(4)
           .fill('')

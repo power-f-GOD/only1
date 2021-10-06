@@ -1,4 +1,4 @@
-import { FC, memo, useMemo } from 'react';
+import { FC, memo, useMemo, useContext } from 'react';
 
 import {
   // Cell,
@@ -15,14 +15,15 @@ import { useTheme } from '@mui/material';
 
 import S from 'src/styles/pages/dashboard/index.module.scss';
 import { Box } from 'src/components';
-import { areaChartData } from '../data';
 import { CustomTooltip } from './CustomTooltip';
+import { DashboardContext } from 'src/pages/dashboard';
 
 const AreaChart: FC<{ className?: string; height?: number; width?: number }> = ({
   className,
   height: _height,
   width: _width
 }) => {
+  const { team_activities } = useContext(DashboardContext);
   const theme = useTheme();
   const width = _width || 680;
   const height = _height || 300;
@@ -35,7 +36,7 @@ const AreaChart: FC<{ className?: string; height?: number; width?: number }> = (
         [height, width]
       )}>
       <ResponsiveContainer width="100%" height="100%">
-        <_AreaChart height={height} data={areaChartData}>
+        <_AreaChart height={height} data={team_activities}>
           <defs>
             <linearGradient id="act" x1="0" y1="0" x2="0" y2="1">
               <stop offset="5%" stopColor={theme.palette.primary.light} stopOpacity={0.8} />

@@ -1,19 +1,36 @@
 import { FC, memo } from 'react';
 
-import { Box } from 'src/components';
-import { BoxAs } from 'src/types';
+import { Box, SVGIcon, ButtonMenu } from 'src/components';
+import { CardProps } from 'src/types';
 
-interface CardProps {
-  as?: BoxAs;
-  className?: string;
-  component?: FC;
-}
-
-const _Card: FC<CardProps> = ({ children, as, className, component }) => {
+const _Card: FC<CardProps> = ({
+  as,
+  title,
+  header,
+  children,
+  className,
+  options,
+  component,
+  ...otherProps
+}) => {
   const Component = component || Box;
 
   return (
-    <Component as={as} className={`Card ${className || ''}`}>
+    <Component as={as} className={`Card ${className || ''}`} {...otherProps}>
+      <Box className="d-flex justify-content-between align-items-center m-0 w-100">
+        <Box as="h2" className="h6">
+          {title}
+        </Box>
+        {header}
+        {options && (
+          <ButtonMenu
+            buttonType="icon-button"
+            buttonClassName="more-button"
+            buttonConstantContent={<SVGIcon name="more" fontSize="inherit" />}
+            options={options}
+          />
+        )}
+      </Box>
       {children}
     </Component>
   );

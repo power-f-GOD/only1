@@ -12,10 +12,8 @@ import {
   MenuItemTypeMap
 } from '@mui/material';
 import { theme } from 'src/utils';
-import { SVGIconName, MuiButtonProps } from 'src/types';
+import { MuiButtonProps, Options } from 'src/types';
 import { SVGIcon } from './SVG.Icons';
-
-type Options = Array<{ icon?: SVGIconName | FC; value?: string }>;
 
 const dummyOptions: Options = [
   { value: 'All' },
