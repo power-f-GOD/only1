@@ -1,4 +1,5 @@
 export interface DashboardProps {
+  _uaString?: string;
   works: {
     title: string;
     count: number;

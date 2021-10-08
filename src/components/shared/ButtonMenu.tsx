@@ -15,20 +15,13 @@ import { theme } from 'src/utils';
 import { MuiButtonProps, Options } from 'src/types';
 import { SVGIcon } from './SVG.Icons';
 
-const dummyOptions: Options = [
-  { value: 'All' },
-  { value: 'lorem' },
-  { value: 'ipsum' },
-  { value: 'dolor' }
-];
-
 const _ButtonMenu: FC<{
   buttonProps?: MuiButtonProps;
   menuProps?: MenuProps;
   menuItemProps?: MenuItemTypeMap['props'];
   buttonConstantContent?: string | number | JSX.Element;
   buttonClassName?: string;
-  options?: Options;
+  options: Options;
   buttonType?: 'flat-button' | 'icon-button';
 }> = ({
   buttonProps,
@@ -37,9 +30,8 @@ const _ButtonMenu: FC<{
   buttonClassName,
   menuProps,
   menuItemProps,
-  options: _options
+  options
 }) => {
-  const options = _options || dummyOptions;
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const [selectedOption, setSelectedOption] = useState(options[0].value || '- Select -');
   const open = !!anchorEl;
@@ -51,10 +43,26 @@ const _ButtonMenu: FC<{
   const handleClick = useCallback((event: React.MouseEvent<HTMLButtonElement>) => {
     setAnchorEl(event.currentTarget);
   }, []);
-  // endIcon={<KeyboardArrowDownIcon />}
+
   const handleClose = useCallback(() => {
     setAnchorEl(null);
   }, []);
+
+  const renderOptions = useCallback(
+    (option) => (
+      <MenuItem
+        {...(menuItemProps || {})}
+        key={option.value}
+        onClick={() => {
+          handleClose();
+          setSelectedOption(option?.value || '');
+        }}>
+        {typeof option.icon === 'string' ? <SVGIcon name={option.icon} /> : option.icon}
+        {option.value}
+      </MenuItem>
+    ),
+    [handleClose, menuItemProps]
+  );
 
   return (
     <>
@@ -85,24 +93,22 @@ const _ButtonMenu: FC<{
             'aria-labelledby': 'basic-button'
           }),
           []
-        )}>
-        {options.map(
-          useCallback(
-            (option) => (
-              <MenuItem
-                {...(menuItemProps || {})}
-                key={option.value}
-                onClick={() => {
-                  handleClose();
-                  setSelectedOption(option?.value || '');
-                }}>
-                {typeof option.icon === 'string' ? <SVGIcon name={option.icon} /> : option.icon}
-                {option.value}
-              </MenuItem>
-            ),
-            [handleClose, menuItemProps]
-          )
         )}
+        anchorOrigin={useMemo(
+          () => ({
+            vertical: 'bottom',
+            horizontal: 'right'
+          }),
+          []
+        )}
+        transformOrigin={useMemo(
+          () => ({
+            vertical: 'top',
+            horizontal: 'right'
+          }),
+          []
+        )}>
+        {options.map(renderOptions)}
       </Menu>
     </>
   );

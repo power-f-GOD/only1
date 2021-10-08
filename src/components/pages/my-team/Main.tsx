@@ -16,8 +16,6 @@ const Main = (): JSX.Element => {
             className="Card anim__fadeInUp"
             style={{ animationDelay: `${i * 0.1}s` }}
             options={[{ value: 'lorem' }, { value: 'ipsum' }, { value: 'dolor' }]}>
-            {/* <Box className="mb-2 w-100"/> */}
-
             <Avatar
               size="medium"
               variant="square"

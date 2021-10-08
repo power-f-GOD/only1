@@ -51,8 +51,9 @@ const Dashboard: NextPage<DashboardProps> = ({
   );
 };
 
-Dashboard.getInitialProps = async () => {
+Dashboard.getInitialProps = async ({ req }) => {
   return {
+    _uaString: req?.headers['user-agent'],
     works: {
       title: 'Works',
       count: 75,

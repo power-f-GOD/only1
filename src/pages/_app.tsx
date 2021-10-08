@@ -4,6 +4,7 @@ import { createContext, useState, useEffect, useMemo } from 'react';
 import { AppProps } from 'next/app';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
+import { useUserAgent } from 'next-useragent';
 
 import { StylesProvider, ThemeProvider } from '@mui/styles';
 
@@ -16,7 +17,10 @@ export const AppWindowContext = createContext<number>(globalThis.innerWidth);
 
 const App = ({ Component, pageProps }: AppProps): JSX.Element => {
   const _window = globalThis || window;
-  const [windowWidth, setWindowWidth] = useState(_window.innerWidth);
+  const ua = useUserAgent(pageProps._uaString || _window.navigator?.userAgent);
+  const [windowWidth, setWindowWidth] = useState(
+    _window.innerWidth || (ua.isMobile ? 0 : ua.isTablet ? 768 : 992)
+  );
   const appContextValue = useMemo(() => ({}), []);
   const { pathname } = useRouter();
 
@@ -30,7 +34,7 @@ const App = ({ Component, pageProps }: AppProps): JSX.Element => {
       }, 200);
     };
     _window.document.querySelector('html')!.lang = 'en-UK';
-    delay(25, () => {
+    delay(10, () => {
       _window.document.querySelector('head')!.insertAdjacentHTML(
         'afterbegin',
         `

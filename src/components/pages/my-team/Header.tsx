@@ -25,6 +25,7 @@ const Header = (): JSX.Element => {
             }),
             []
           )}
+          options={useMemo(() => [{ value: 'lorem' }, { value: 'ipsum' }, { value: 'dolor' }], [])}
         />
       </Box>
     </Container>
