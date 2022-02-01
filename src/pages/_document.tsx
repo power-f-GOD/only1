@@ -1,4 +1,4 @@
-import Document, { Html, Head, Main, NextScript } from 'next/document';
+import Document, { Html, Main, NextScript } from 'next/document';
 import createEmotionServer from '@emotion/server/create-instance';
 
 import { createEmotionCache } from 'src/utils';
@@ -11,15 +11,12 @@ export default class MyDocument extends Document {
 
     return (
       <Html lang="en">
-        <Head>
+        {/* <Head>
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link rel="preconnect" href="https://fonts.gstatic.com" />
           <link rel="shortcut icon" href="/static/favicon.ico" />
-          {/* Inject MUI styles first to match with the prepend: true configuration. */}
-          {/* {}
-          {this.props.styles}
-          {this.props.head} */}
-        </Head>
+          
+        </Head> */}
         <body>
           <Main />
           <NextScript />
