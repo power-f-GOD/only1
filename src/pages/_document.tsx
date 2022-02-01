@@ -6,6 +6,10 @@ import { CacheProvider } from '@emotion/react';
 import { StylesProvider } from '@mui/styles';
 
 export default class MyDocument extends Document {
+  //   componentDidMount() {
+  // this.props.head
+  //   }
+
   render() {
     return (
       <Html lang="en">
@@ -14,10 +18,10 @@ export default class MyDocument extends Document {
           <link rel="preconnect" href="https://fonts.gstatic.com" />
           <link rel="shortcut icon" href="/static/favicon.ico" /> */}
           {/* Inject MUI styles first to match with the prepend: true configuration. */}
-          {(this.props as any).emotionStyleTag}
-          {this.props.head}
-          {this.props.styles}
         </Head>
+        {(this.props as any).emotionStyleTag}
+        {this.props.head}
+        {this.props.styles}
         <body>
           <Main />
           <NextScript />
@@ -64,11 +68,11 @@ MyDocument.getInitialProps = async (ctx) => {
       enhanceApp: (App: any) =>
         function EnhanceApp(props) {
           return (
-            <StylesProvider injectFirst>
-              <CacheProvider value={cache}>
+            <CacheProvider value={cache}>
+              <StylesProvider injectFirst>
                 <App {...props} />
-              </CacheProvider>
-            </StylesProvider>
+              </StylesProvider>{' '}
+            </CacheProvider>
           );
         }
     });
@@ -88,7 +92,7 @@ MyDocument.getInitialProps = async (ctx) => {
   // ));
   const emotionStyleTag = (
     <style
-      data-emotion={`css-server ${emotionChunks.styles.map(({ ids }) => ids.join(' ')).join(' ')}`}
+      data-emotion={`css server ${emotionChunks.styles.map(({ ids }) => ids.join(' ')).join(' ')}`}
       key="style"
       // eslint-disable-next-line react/no-danger
       dangerouslySetInnerHTML={{ __html: styleStrings }}
