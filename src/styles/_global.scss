@@ -257,10 +257,6 @@ input[type='password'] {
   font-size: 1em;
 }
 
-.MuiPaper-elevation8 {
-  box-shadow: 0 0.5em 2em rgb(0 0 0 / 10%);
-}
-
 .MuiIconButton-root {
   font-size: 1.125em;
 }
@@ -272,6 +268,10 @@ input[type='password'] {
   li:first-child {
     background-color: rgba($tertiary-r, $tertiary-g, $tertiary-b, 0.05);
   }
+}
+
+.MuiPaper-elevation8 {
+  box-shadow: 0 0.5em 2em rgb(0 0 0 / 10%);
 }
 
 [class~='col'],

@@ -5,8 +5,7 @@ import { AppProps } from 'next/app';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { useUserAgent } from 'next-useragent';
-
-import { ThemeProvider } from '@mui/styles';
+import { StylesProvider, ThemeProvider } from '@mui/styles';
 
 import 'src/styles/index.scss';
 import { AppNav, AppHeader } from 'src/components';
@@ -56,21 +55,33 @@ const App = ({ Component, pageProps }: AppProps): JSX.Element => {
     }
   }, [pathname]);
 
+  useEffect(() => {
+    // HACK: manually move emotion styles to top before custom styles as CSR (in production) kept appending them after custom styles causing them to be overriden
+    if (process.env.NODE_ENV === 'production') {
+      document.querySelectorAll('[data-emotion*=css]').forEach((style) => {
+        document.head.removeChild(style);
+        document.head.insertAdjacentElement('afterbegin', style);
+      });
+    }
+  }, []);
+
   return (
     <ThemeProvider theme={theme}>
-      <AppContext.Provider value={appContextValue}>
-        <AppWindowContext.Provider value={windowWidth}>
-          <Head>
-            <meta name="description" content="Only1 UI Dashboard Inspiration" />
-            <meta name="keywords" content="UI's, dashboards ui examples" />
-            <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-          </Head>
+      <StylesProvider injectFirst>
+        <AppContext.Provider value={appContextValue}>
+          <AppWindowContext.Provider value={windowWidth}>
+            <Head>
+              <meta name="description" content="Only1 UI Dashboard Inspiration" />
+              <meta name="keywords" content="UI's, dashboards ui examples" />
+              <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+            </Head>
 
-          <AppNav />
-          <AppHeader />
-          <Component {...pageProps}></Component>
-        </AppWindowContext.Provider>
-      </AppContext.Provider>
+            <AppNav />
+            <AppHeader />
+            <Component {...pageProps}></Component>
+          </AppWindowContext.Provider>
+        </AppContext.Provider>
+      </StylesProvider>
     </ThemeProvider>
   );
 };

@@ -55,5 +55,25 @@ export const theme: Theme = createTheme({
       800: `rgba(${grey.r}, ${grey.g}, ${grey.b}, 0.8)`,
       900: `rgba(${grey.r}, ${grey.g}, ${grey.b}, 0.9)`
     }
+  },
+  components: {
+    MuiPopover: {
+      styleOverrides: {
+        paper: {
+          borderRadius: '0.75em',
+          minWidth: '7.5em',
+          'ul li:first-child': {
+            backgroundColor: `rgba(${grey.r}, ${grey.g}, ${grey.b}, 0.05)`
+          }
+        }
+      }
+    },
+    MuiPaper: {
+      styleOverrides: {
+        elevation8: {
+          boxShadow: '0 0.5em 2em rgb(0 0 0 / 10%) !important'
+        }
+      }
+    }
   }
 });
