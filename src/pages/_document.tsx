@@ -2,6 +2,7 @@ import Document, { Html, Head, Main, NextScript } from 'next/document';
 import createEmotionServer from '@emotion/server/create-instance';
 
 import { createEmotionCache } from 'src/utils';
+import { CacheProvider } from '@emotion/react';
 
 export default class MyDocument extends Document {
   render() {
@@ -10,14 +11,9 @@ export default class MyDocument extends Document {
         <Head>
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link rel="preconnect" href="https://fonts.gstatic.com" />
-          <meta name="description" content="A laundry and wash service app." />
           <link rel="shortcut icon" href="/static/favicon.ico" />
           {/* Inject MUI styles first to match with the prepend: true configuration. */}
           {(this.props as any).emotionStyleTags}
-          {/* <link
-            href="https://fonts.googleapis.com/css?family=Orbitron:900&amp;display=swap"
-            rel="stylesheet"
-          /> */}
         </Head>
         <body>
           <Main />
@@ -64,7 +60,11 @@ MyDocument.getInitialProps = async (ctx) => {
     originalRenderPage({
       enhanceApp: (App: any) =>
         function EnhanceApp(props) {
-          return <App emotionCache={cache} {...props} />;
+          return (
+            <CacheProvider value={cache}>
+              <App {...props} />
+            </CacheProvider>
+          );
         }
     });
 
