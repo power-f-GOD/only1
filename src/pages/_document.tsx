@@ -7,8 +7,6 @@ import { StylesProvider } from '@mui/styles';
 
 export default class MyDocument extends Document {
   render() {
-    this.props.head?.unshift((this.props as any).emotionStyleTag);
-
     return (
       <Html lang="en">
         <Head>
@@ -16,8 +14,9 @@ export default class MyDocument extends Document {
           <link rel="preconnect" href="https://fonts.gstatic.com" />
           <link rel="shortcut icon" href="/static/favicon.ico" /> */}
           {/* Inject MUI styles first to match with the prepend: true configuration. */}
-          {/* {this.props.styles} */}
+          {(this.props as any).emotionStyleTag}
           {this.props.head}
+          {this.props.styles}
         </Head>
         <body>
           <Main />
@@ -89,8 +88,8 @@ MyDocument.getInitialProps = async (ctx) => {
   // ));
   const emotionStyleTag = (
     <style
-      data-emotion={`css server ${emotionChunks.styles.map(({ ids }) => ids.join(' ')).join(' ')}`}
-      key="styles"
+      data-emotion={`css-server ${emotionChunks.styles.map(({ ids }) => ids.join(' ')).join(' ')}`}
+      key="style"
       // eslint-disable-next-line react/no-danger
       dangerouslySetInnerHTML={{ __html: styleStrings }}
     />
