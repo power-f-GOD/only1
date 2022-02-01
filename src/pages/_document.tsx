@@ -3,6 +3,7 @@ import createEmotionServer from '@emotion/server/create-instance';
 
 import { createEmotionCache } from 'src/utils';
 import { CacheProvider } from '@emotion/react';
+import { StylesProvider } from '@mui/styles';
 
 export default class MyDocument extends Document {
   render() {
@@ -61,9 +62,11 @@ MyDocument.getInitialProps = async (ctx) => {
       enhanceApp: (App: any) =>
         function EnhanceApp(props) {
           return (
-            <CacheProvider value={cache}>
-              <App {...props} />
-            </CacheProvider>
+            <StylesProvider injectFirst>
+              <CacheProvider value={cache}>
+                <App {...props} />
+              </CacheProvider>
+            </StylesProvider>
           );
         }
     });

@@ -6,7 +6,7 @@ import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { useUserAgent } from 'next-useragent';
 
-import { StylesProvider, ThemeProvider } from '@mui/styles';
+import { ThemeProvider } from '@mui/styles';
 
 import 'src/styles/index.scss';
 import { AppNav, AppHeader } from 'src/components';
@@ -66,11 +66,9 @@ const App = ({ Component, pageProps }: AppProps): JSX.Element => {
             <meta name="viewport" content="width=device-width, initial-scale=1.0" />
           </Head>
 
-          <StylesProvider injectFirst>
-            <AppNav />
-            <AppHeader />
-            <Component {...pageProps}></Component>
-          </StylesProvider>
+          <AppNav />
+          <AppHeader />
+          <Component {...pageProps}></Component>
         </AppWindowContext.Provider>
       </AppContext.Provider>
     </ThemeProvider>
