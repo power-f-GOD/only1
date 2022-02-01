@@ -61,13 +61,9 @@ const App = ({ Component, pageProps }: AppProps): JSX.Element => {
       <AppContext.Provider value={appContextValue}>
         <AppWindowContext.Provider value={windowWidth}>
           <Head>
-            <meta
-              name="description"
-              content="Author: Godspower Sunday, Desc: Only1 UI Dashboard."
-            />
+            <meta name="description" content="Only1 UI Dashboard Inspiration" />
             <meta name="keywords" content="UI's, dashboards ui examples" />
             <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-            {/* <link rel="icon" href="/favicon.ico" /> */}
           </Head>
 
           <StylesProvider injectFirst>

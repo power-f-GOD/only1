@@ -6,9 +6,11 @@ body[data-scrolled='true'] {
   }
 
   [class*='MyTeam'] {
+    $offset: 7.5em;
+
     aside {
       transform: translateY(1.25em);
-      max-height: calc(100vh - 10em);
+      max-height: calc(100vh - #{$offset + 2.5em});
     }
   }
 }
@@ -22,10 +24,14 @@ body[data-scrolled='true'] {
   max-height: 100vh;
   display: grid;
   overflow-x: auto; // hidden;
-  background-color: $theme-primary;
+  background-color: $app-bg;
   @extend .anim__fadeIn;
 
   > {
+    * {
+      max-width: 2000px;
+    }
+
     nav {
       grid-column: 1 / 2;
       grid-row: 1 / 3;
@@ -34,6 +40,10 @@ body[data-scrolled='true'] {
     }
 
     header {
+      width: 100%;
+
+      margin-left: auto;
+      margin-right: auto;
       background: $app-bg;
       transition: 0.35s;
       @extend .anim__fadeInDown;
@@ -43,7 +53,7 @@ body[data-scrolled='true'] {
       overflow-x: clip; // hidden;
       background: $app-bg;
       padding: 1em;
-      @extend .anim__fadeInUp;
+      @extend .anim__fadeInRight;
     }
   }
 

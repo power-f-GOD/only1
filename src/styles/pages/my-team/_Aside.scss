@@ -2,7 +2,7 @@
   $offset: 7.5em;
 
   max-height: calc(100vh - #{$offset + 1.25em});
-  height: auto;
+  height: 52em;
   position: sticky;
   overflow-y: auto;
   border-radius: 0.75em;
@@ -11,7 +11,7 @@
   transition: 0.35s;
 
   div[class*='Card'] {
-    height: 50em;
+    height: 100%;
     box-shadow: unset;
   }
 

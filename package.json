@@ -10,7 +10,7 @@
     "lint": "eslint --ext js,jsx,ts,tsx --fix",
     "postinstall": "husky install",
     "test": "jest",
-    "deploy": "git pull origin main && git checkout main && git pull origin main && git merge dev && git push && git checkout dev && git pull origin dev && git merge main",
+    "deploy": "git pull origin main && git checkout main && git pull origin main && git merge dev && git push && git checkout dev && git pull origin dev && git merge main && git checkout dev && git push",
     "stash": "git stash save -m echo `date`",
     "stash:list": "git stash list --format='%gd (%cr): %gs'",
     "stash:update-ref": "git update-ref refs/stash stash@{0}",
@@ -21,25 +21,26 @@
     "remove-files": "for file in *.webp; do rm $file; done"
   },
   "dependencies": {
+    "@emotion/css": "^11.7.1",
     "@emotion/react": "^11.4.1",
     "@emotion/styled": "^11.3.0",
     "@mui/material": "^5.0.2",
     "@mui/styles": "^5.0.1",
-    "@types/node": "^14.17.5",
-    "@types/react": "^17.0.14",
     "framer-motion": "^4.1.17",
     "next": "^11.0.1",
     "next-useragent": "^2.8.0",
     "react": "^17.0.1",
     "react-bootstrap": "^1.6.1",
     "react-dom": "^17.0.1",
-    "recharts": "^2.1.4",
-    "sass": "^1.32.8",
-    "typescript": "^4.3.5"
+    "recharts": "^2.1.4"
   },
   "devDependencies": {
     "@babel/core": "^7.14.6",
+    "@emotion/babel-plugin": "^11.7.2",
+    "@emotion/server": "^11.4.0",
     "@types/jest": "^26.0.24",
+    "@types/node": "^14.17.5",
+    "@types/react": "^17.0.14",
     "@types/react-dom": "^17.0.9",
     "@types/react-test-renderer": "^17.0.1",
     "@typescript-eslint/eslint-plugin": "^4.28.2",
@@ -58,7 +59,9 @@
     "jest-watch-typeahead": "^0.6.4",
     "lint-staged": "^10.5.4",
     "prettier": "^2.3.2",
-    "react-test-renderer": "^17.0.1"
+    "react-test-renderer": "^17.0.1",
+    "sass": "^1.32.8",
+    "typescript": "^4.3.5"
   },
   "version": "1.0.0",
   "description": "Only1 website built with Next.js",

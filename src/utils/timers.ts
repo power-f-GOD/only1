@@ -1,6 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
-/* eslint-disable @typescript-eslint/explicit-function-return-type */
 export const throttle = (callback: () => void, delay?: number) =>
   setTimeout(() => callback(), delay || 50);
 

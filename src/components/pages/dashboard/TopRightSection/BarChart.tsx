@@ -36,7 +36,13 @@ const BarChart: FC<{ className?: string; height?: number; width?: number }> = ({
     <Box
       className={`${S.BarChart} ${className || ''} pt-3`}
       style={useMemo(
-        () => ({ height, width, maxWidth: '100%', maxHeight: '100%' }),
+        () => ({
+          height,
+          width,
+          minWidth: 'calc(100% - 4em)',
+          maxWidth: '100%',
+          maxHeight: '100%'
+        }),
         [height, width]
       )}>
       <ResponsiveContainer width="100%" height="100%">

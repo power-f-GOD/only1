@@ -6,7 +6,7 @@
   @media screen and (min-width: 992px) {
     row-gap: 0;
     column-gap: 1.625em;
-    grid-template-columns: 1fr minmax(19.5em, 25%);
+    grid-template-columns: 1fr 20em;
     grid-template-rows: 5em auto;
 
     header {
