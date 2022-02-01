@@ -19,7 +19,7 @@ export default class MyDocument extends Document {
           <link rel="shortcut icon" href="/static/favicon.ico" /> */}
           {/* Inject MUI styles first to match with the prepend: true configuration. */}
         </Head>
-        {(this.props as any).emotionStyleTag}
+        {/* {(this.props as any).emotionStyleTag} */}
         {this.props.head}
         {this.props.styles}
         <body>
